@@ -18,8 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import { ISelectChangedEvent } from "@nova-ui/bits";
 
@@ -30,9 +30,8 @@ import { ISelectChangedEvent } from "@nova-ui/bits";
         "../select-custom-template/select-custom-template.example.component.less",
     ],
 })
-export class SelectVisualTestComponent implements OnInit {
+export class SelectVisualTestComponent {
     public isRequired = true;
-    public myForm: FormGroup;
     public datasetBasic = {
         items: [
             "Item 1",
@@ -48,6 +47,11 @@ export class SelectVisualTestComponent implements OnInit {
         ],
         selectedItem: "",
     };
+    public myForm = this.formBuilder.group({
+        item: this.formBuilder.control(this.datasetBasic.selectedItem, [
+            Validators.required,
+        ]),
+    });
     public datasetDisabled = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "Item 1",
@@ -82,9 +86,6 @@ export class SelectVisualTestComponent implements OnInit {
         ],
         selectedItem: $localize`Item 1`,
     };
-
-    constructor(private formBuilder: FormBuilder) {}
-
     public datasetCustom = {
         displayValue: "value",
         selectedItem: "",
@@ -122,13 +123,7 @@ export class SelectVisualTestComponent implements OnInit {
         ],
     };
 
-    public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            item: this.formBuilder.control(this.datasetBasic.selectedItem, [
-                Validators.required,
-            ]),
-        });
-    }
+    constructor(private formBuilder: FormBuilder) {}
 
     public onSubmit(): void {
         if (!this.myForm.valid) {

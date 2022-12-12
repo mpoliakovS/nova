@@ -23,11 +23,11 @@ import {
     AfterViewInit,
     ChangeDetectionStrategy,
     Component,
-    OnInit,
     ViewChild,
     ViewEncapsulation,
 } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+// eslint-disable-next-line import/no-deprecated
 import { tap } from "rxjs/operators";
 
 import { WizardDirective, WizardStepV2Component } from "@nova-ui/bits";
@@ -60,8 +60,20 @@ export class WizardCustomComponent extends WizardDirective {}
         },
     ],
 })
-export class WizardCustomExampleComponent implements OnInit, AfterViewInit {
-    public formGroup: FormGroup;
+export class WizardCustomExampleComponent implements AfterViewInit {
+    public formGroup = this.formBuilder.group({
+        personDetails: this.formBuilder.group({
+            name: ["", [Validators.required, Validators.minLength(3)]],
+            symptoms: [undefined, Validators.required],
+        }),
+        diseaseDetails: this.formBuilder.group({
+            date: ["", Validators.required],
+        }),
+        contactDetails: this.formBuilder.group({
+            email: ["", [Validators.required, Validators.email]],
+            phone: [""],
+        }),
+    });
     public steps: number = 1;
     public selectedIndex: number = 0;
     public progress: number;
@@ -69,22 +81,6 @@ export class WizardCustomExampleComponent implements OnInit, AfterViewInit {
     @ViewChild("wizard") wizard: WizardCustomComponent;
 
     constructor(private formBuilder: FormBuilder) {}
-
-    public ngOnInit(): void {
-        this.formGroup = new FormGroup({
-            personDetails: this.formBuilder.group({
-                name: ["", [Validators.required, Validators.minLength(3)]],
-                symptoms: [undefined, Validators.required],
-            }),
-            diseaseDetails: this.formBuilder.group({
-                date: ["", Validators.required],
-            }),
-            contactDetails: this.formBuilder.group({
-                email: ["", [Validators.required, Validators.email]],
-                phone: [""],
-            }),
-        });
-    }
 
     public ngAfterViewInit(): void {
         const update = (selectedIndex?: number, steps?: number) => {

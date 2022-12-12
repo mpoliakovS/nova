@@ -18,23 +18,19 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "nui-form-field-validation-triggering-example",
     templateUrl: "./form-field-validation-triggering.example.component.html",
 })
-export class FormFieldValidationTriggeringxampleComponent implements OnInit {
-    public reactiveForm: FormGroup;
+export class FormFieldValidationTriggeringxampleComponent {
+    public reactiveForm = this.formBuilder.group({
+        email: this.formBuilder.control(""),
+    });
 
     constructor(private formBuilder: FormBuilder) {}
-
-    public ngOnInit(): void {
-        this.reactiveForm = this.formBuilder.group({
-            email: this.formBuilder.control(""),
-        });
-    }
 
     public onAddValidators(): void {
         this.reactiveForm

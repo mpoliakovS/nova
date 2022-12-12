@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
     selector: "nui-textbox-number-min-max-example",
@@ -28,11 +28,9 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 export class TextboxNumberMinMaxExampleComponent {
     public value = 10;
 
-    public reactiveForm: FormGroup;
+    public reactiveForm = this.formBuilder.group({
+        number: [1],
+    });
 
-    constructor(public formBuilder: FormBuilder) {
-        this.reactiveForm = formBuilder.group({
-            number: [1],
-        });
-    }
+    constructor(public formBuilder: FormBuilder) {}
 }

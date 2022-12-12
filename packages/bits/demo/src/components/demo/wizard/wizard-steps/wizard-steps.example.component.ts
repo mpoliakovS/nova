@@ -18,8 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component, OnDestroy, ViewChild } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -33,32 +33,26 @@ import {
     selector: "nui-wizard-steps-example",
     templateUrl: "./wizard-steps.example.component.html",
 })
-export class WizardStepsExampleComponent implements OnDestroy, OnInit {
+export class WizardStepsExampleComponent implements OnDestroy {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
     @ViewChild("dynamicStep") dynamicStep: WizardStepComponent;
 
     public selectedIndex: number;
-
+    public myForm = this.formBuilder.group({
+        name: ["", Validators.required],
+        email: [
+            "",
+            [
+                Validators.required,
+                Validators.pattern("[^ @]*@[^ @]*"),
+                Validators.email,
+            ],
+        ],
+        password: ["", [Validators.required, Validators.minLength(8)]],
+    });
     private readonly destroy$ = new Subject<void>();
 
-    public myForm: FormGroup;
-
     constructor(private formBuilder: FormBuilder) {}
-
-    public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            name: ["", Validators.required],
-            email: [
-                "",
-                [
-                    Validators.required,
-                    Validators.pattern("[^ @]*@[^ @]*"),
-                    Validators.email,
-                ],
-            ],
-            password: ["", [Validators.required, Validators.minLength(8)]],
-        });
-    }
 
     public select(event: IWizardSelectionEvent): void {
         this.selectedIndex = event.selectedIndex;

@@ -18,8 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import { ToastService } from "@nova-ui/bits";
 
@@ -27,28 +27,24 @@ import { ToastService } from "@nova-ui/bits";
     selector: "nui-checkbox-group-in-form-example",
     templateUrl: "./checkbox-group-in-form.example.component.html",
 })
-export class CheckboxGroupInFormExampleComponent implements OnInit {
-    public myForm: FormGroup;
+export class CheckboxGroupInFormExampleComponent {
     public cabbage = $localize`Cabbage`;
     public potato = $localize`Potato`;
     public tomato = $localize`Tomato`;
     public carrot = $localize`Carrot`;
     public vegetables = [this.cabbage, this.potato, this.tomato, this.carrot];
     public selectedVegetables = [this.cabbage];
+    public myForm = this.formBuilder.group({
+        checkboxGroup: this.formBuilder.control(
+            [this.cabbage, this.potato],
+            [Validators.required, Validators.minLength(3)]
+        ),
+    });
 
     constructor(
         private formBuilder: FormBuilder,
         private toastService: ToastService
     ) {}
-
-    public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            checkboxGroup: this.formBuilder.control(
-                [this.cabbage, this.potato],
-                [Validators.required, Validators.minLength(3)]
-            ),
-        });
-    }
 
     public onSubmit(): void {
         console.log(this.myForm);

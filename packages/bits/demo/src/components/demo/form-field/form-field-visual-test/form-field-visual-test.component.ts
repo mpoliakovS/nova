@@ -18,47 +18,38 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "nui-form-field-visual-test",
     templateUrl: "./form-field-visual-test.component.html",
 })
-export class FormFieldVisualTestComponent implements OnInit {
-    public fancyForm: FormGroup;
+export class FormFieldVisualTestComponent {
+    public fancyForm = this.formBuilder.group({
+        nickname: this.formBuilder.control("", [
+            Validators.required,
+            Validators.min(3),
+        ]),
+        city: this.formBuilder.control(""),
+        textbox: this.formBuilder.control("", [Validators.required]),
+        checkbox: this.formBuilder.control(false, [Validators.requiredTrue]),
+        checkboxGroup: this.formBuilder.control("", [Validators.required]),
+        radioGroup: this.formBuilder.control(null, [Validators.required]),
+        switch: this.formBuilder.control(false, [Validators.requiredTrue]),
+        select: this.formBuilder.control("", [Validators.required]),
+        combobox: this.formBuilder.control("", [Validators.required]),
+        timePicker: this.formBuilder.control("", [Validators.required]),
+    });
 
     public vegetables = ["Cabbage", "Potato", "Tomato", "Carrot"];
 
     constructor(private formBuilder: FormBuilder) {}
-    public ngOnInit(): void {
-        this.fancyForm = this.formBuilder.group({
-            nickname: this.formBuilder.control("", [
-                Validators.required,
-                Validators.min(3),
-            ]),
-            city: this.formBuilder.control(""),
-            textbox: this.formBuilder.control("", [Validators.required]),
-            checkbox: this.formBuilder.control(false, [
-                Validators.requiredTrue,
-            ]),
-            checkboxGroup: this.formBuilder.control("", [Validators.required]),
-            radioGroup: this.formBuilder.control(null, [Validators.required]),
-            switch: this.formBuilder.control(false, [Validators.requiredTrue]),
-            select: this.formBuilder.control("", [Validators.required]),
-            combobox: this.formBuilder.control("", [Validators.required]),
-            timePicker: this.formBuilder.control("", [Validators.required]),
-        });
-    }
 
-    formInitialized(name: string, form: FormGroup): void {
-        this.fancyForm.setControl(name, form);
-    }
-
-    markAsTouched(): void {
+    markAsDirty(): void {
         Object.keys(this.fancyForm.controls).forEach((key) => {
-            this.fancyForm.controls[key].markAsDirty();
-            this.fancyForm.controls[key].updateValueAndValidity();
+            this.fancyForm.get(key)?.markAsDirty();
+            this.fancyForm.get(key)?.updateValueAndValidity();
         });
     }
 }

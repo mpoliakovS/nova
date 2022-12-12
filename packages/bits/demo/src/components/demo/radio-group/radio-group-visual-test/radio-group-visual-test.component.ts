@@ -18,15 +18,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
     selector: "nui-radio-group-visual-test",
     templateUrl: "./radio-group-visual-test.component.html",
 })
-export class RadioGroupVisualTestComponent implements OnInit {
-    public disabledForm: FormGroup;
+export class RadioGroupVisualTestComponent {
+    public disabledForm = this.formBuilder.group({
+        radioGroup: this.formBuilder.control({ value: "", disabled: true }),
+    });
     public colors = ["Red", "Green", "Blue"];
     public colorHints = {
         Red: "hot color",
@@ -38,10 +40,4 @@ export class RadioGroupVisualTestComponent implements OnInit {
     public selectedColor: string;
 
     constructor(private formBuilder: FormBuilder) {}
-
-    public ngOnInit(): void {
-        this.disabledForm = this.formBuilder.group({
-            radioGroup: this.formBuilder.control({ value: "", disabled: true }),
-        });
-    }
 }

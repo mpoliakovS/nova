@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import { ISelectChangedEvent, ToastService } from "@nova-ui/bits";
 
@@ -28,7 +28,6 @@ import { ISelectChangedEvent, ToastService } from "@nova-ui/bits";
     templateUrl: "./select-reactive-form.example.component.html",
 })
 export class SelectReactiveFormExampleComponent implements OnInit {
-    public myForm: FormGroup;
     public dataset = {
         items: [
             $localize`Item 1`,
@@ -39,6 +38,11 @@ export class SelectReactiveFormExampleComponent implements OnInit {
         ],
         selectedItem: "",
     };
+    public myForm = this.formBuilder.group({
+        item: this.formBuilder.control(this.dataset.selectedItem, [
+            Validators.required,
+        ]),
+    });
 
     constructor(
         private formBuilder: FormBuilder,
@@ -46,11 +50,6 @@ export class SelectReactiveFormExampleComponent implements OnInit {
     ) {}
 
     public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            item: this.formBuilder.control(this.dataset.selectedItem, [
-                Validators.required,
-            ]),
-        });
         this.myForm.controls["item"].valueChanges.subscribe((value) =>
             console.log("Value changed to", value)
         );
