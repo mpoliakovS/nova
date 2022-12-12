@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { ISelectChangedEvent, ToastService } from "@nova-ui/bits";
 
@@ -28,7 +32,7 @@ import { ISelectChangedEvent, ToastService } from "@nova-ui/bits";
     templateUrl: "./select-reactive-form.example.component.html",
 })
 export class SelectReactiveFormExampleComponent implements OnInit {
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public dataset = {
         items: [
             $localize`Item 1`,
@@ -41,7 +45,7 @@ export class SelectReactiveFormExampleComponent implements OnInit {
     };
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
 

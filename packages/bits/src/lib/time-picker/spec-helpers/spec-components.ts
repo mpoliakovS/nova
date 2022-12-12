@@ -20,7 +20,11 @@
 
 import { Inject, OnInit } from "@angular/core";
 import { Component } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import { Moment } from "moment/moment";
 
 import { ToastService } from "../../toast/toast.service";
@@ -47,10 +51,10 @@ import { ToastService } from "../../toast/toast.service";
 })
 export class TimePickerReactiveFormTestComponent implements OnInit {
     public time: Moment;
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(ToastService) public toastService: ToastService
     ) {}
 

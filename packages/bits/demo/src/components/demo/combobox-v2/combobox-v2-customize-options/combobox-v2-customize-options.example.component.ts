@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 
 interface IExampleItem {
     id: string;
@@ -38,7 +38,7 @@ export class ComboboxV2CustomizeOptionsExampleComponent {
         name: $localize`Item ${i}`,
         icon: this.getRandomIcon(),
     }));
-    public comboboxControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
 
     public displayFn(item: IExampleItem): string {
         return item?.name || "";

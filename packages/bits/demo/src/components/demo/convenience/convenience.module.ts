@@ -18,14 +18,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { NgModule, Type } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
 import { SrlcStage } from "@nova-ui/bits";
 
 import { SummaryComponent } from "./index";
 
-const routes = [
+const routes: Routes = [
     {
         path: "",
         redirectTo: "summary",
@@ -45,7 +45,7 @@ const routes = [
         loadChildren: async () =>
             import("./time-frame-bar/time-frame-bar.module").then(
                 (m) => m.TimeFrameBarModule
-            ),
+            ) as Promise<Type<any>>,
     },
 ];
 

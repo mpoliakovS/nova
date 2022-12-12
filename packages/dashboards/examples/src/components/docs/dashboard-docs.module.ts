@@ -18,7 +18,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { NgModule } from "@angular/core";
+import { NgModule, Type } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { InMemoryCache } from "@apollo/client/core";
 import { Apollo } from "apollo-angular";
@@ -38,23 +38,23 @@ const exampleRoutes: Routes = [
     {
         path: "overview",
         loadChildren: async () =>
-            import("components/docs/overview/overview.module").then(
+            import("./overview/overview.module").then(
                 (m) => m.OverviewModule
-            ),
+            ) as Promise<Type<any>>,
     },
     {
         path: "tutorials",
         loadChildren: async () =>
-            import("components/docs/tutorials/tutorials.module").then(
+            import("./tutorials/tutorials.module").then(
                 (m) => m.TutorialsModule
-            ),
+            ) as Promise<Type<any>>,
     },
     {
         path: "widget-types",
         loadChildren: async () =>
-            import("components/docs/widget-types/widget-types.module").then(
+            import("./widget-types/widget-types.module").then(
                 (m) => m.WidgetTypesModule
-            ),
+            ) as Promise<Type<any>>,
     },
 ];
 

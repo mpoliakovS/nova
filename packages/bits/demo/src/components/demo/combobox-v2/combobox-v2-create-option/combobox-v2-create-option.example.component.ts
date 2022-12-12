@@ -24,7 +24,7 @@ import {
     SecurityContext,
     ViewChild,
 } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { DomSanitizer } from "@angular/platform-browser";
 
 import { ComboboxV2Component } from "@nova-ui/bits";
@@ -40,7 +40,7 @@ export class ComboboxV2CreateOptionExampleComponent {
     );
     @ViewChild("combobox") public combobox: ComboboxV2Component;
 
-    public comboboxControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
 
     constructor(private domSanitizer: DomSanitizer) {}
 

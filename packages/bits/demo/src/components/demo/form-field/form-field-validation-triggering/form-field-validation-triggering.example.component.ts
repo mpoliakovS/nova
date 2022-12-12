@@ -19,16 +19,20 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 @Component({
     selector: "nui-form-field-validation-triggering-example",
     templateUrl: "./form-field-validation-triggering.example.component.html",
 })
 export class FormFieldValidationTriggeringxampleComponent implements OnInit {
-    public reactiveForm: FormGroup;
+    public reactiveForm: UntypedFormGroup;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.reactiveForm = this.formBuilder.group({

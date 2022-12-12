@@ -30,7 +30,7 @@ import {
     TemplateRef,
     ViewEncapsulation,
 } from "@angular/core";
-import { AbstractControl, FormGroup } from "@angular/forms";
+import { AbstractControl, UntypedFormGroup } from "@angular/forms";
 import _forOwn from "lodash/forOwn";
 import _isNull from "lodash/isNull";
 import { merge } from "rxjs";
@@ -145,9 +145,9 @@ export class FormFieldComponent
             }
         }
         // This also works for a form Group
-        if ((abstractControl as FormGroup)["controls"]) {
+        if ((abstractControl as UntypedFormGroup)["controls"]) {
             _forOwn(
-                (abstractControl as FormGroup)["controls"],
+                (abstractControl as UntypedFormGroup)["controls"],
                 (control: AbstractControl) => {
                     if (control && this.hasRequiredField(control)) {
                         return true;

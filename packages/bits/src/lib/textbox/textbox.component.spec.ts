@@ -21,7 +21,11 @@
 import { CommonModule } from "@angular/common";
 import { Component, NO_ERRORS_SCHEMA, ViewChild } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    FormsModule,
+    ReactiveFormsModule,
+} from "@angular/forms";
 
 import { NuiFormFieldModule } from "../../nui-api";
 import { SpinnerComponent } from "../spinner/spinner.component";
@@ -43,7 +47,7 @@ class TextboxFormComponent {
         input: this.fb.control(""),
     });
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: UntypedFormBuilder) {}
 }
 
 describe("components >", () => {

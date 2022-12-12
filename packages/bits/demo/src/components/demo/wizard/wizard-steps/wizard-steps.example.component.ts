@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -41,9 +45,9 @@ export class WizardStepsExampleComponent implements OnDestroy, OnInit {
 
     private readonly destroy$ = new Subject<void>();
 
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.myForm = this.formBuilder.group({

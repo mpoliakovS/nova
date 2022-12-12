@@ -18,15 +18,19 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { AbstractControl, FormBuilder, FormGroup } from "@angular/forms";
+import {
+    AbstractControl,
+    UntypedFormBuilder,
+    UntypedFormGroup,
+} from "@angular/forms";
 
 import { removeErrors } from "./remove-errors";
 
 describe("removeErrors > ", () => {
-    let form: FormGroup;
+    let form: UntypedFormGroup;
 
     beforeEach(() => {
-        form = new FormBuilder().group({
+        form = new UntypedFormBuilder().group({
             testControl: "",
         });
     });

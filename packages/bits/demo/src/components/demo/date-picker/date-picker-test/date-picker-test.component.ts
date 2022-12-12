@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import moment, { Moment } from "moment/moment";
 
 import { IDatePickerDisabledDate } from "@nova-ui/bits";
@@ -42,11 +42,11 @@ export class DatePickerTestComponent implements OnInit {
     public month: number;
     public year: number;
     public caption: string;
-    public reactiveDatepickerForm: FormGroup;
+    public reactiveDatepickerForm: UntypedFormGroup;
     public dateDisabled: IDatePickerDisabledDate[];
     public todayDateDisabled: IDatePickerDisabledDate[];
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: UntypedFormBuilder) {
         this.dt = moment();
         this.dtPreserve = moment();
         this.localActiveDate = this.dt;

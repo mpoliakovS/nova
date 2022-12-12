@@ -21,12 +21,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 
-import {
-    DEMO_PATH_TOKEN,
-    NuiDocsModule,
-    NuiImageModule,
-    SrlcStage,
-} from "@nova-ui/bits";
+import { NuiDocsModule, NuiImageModule, SrlcStage } from "@nova-ui/bits";
 
 import {
     ImageBasicExampleComponent,
@@ -85,17 +80,6 @@ const routes = [
         ImageWatermarkedExampleComponent,
         ImageWidthHeightAndAutoFillExampleComponent,
         ImageTestComponent,
-    ],
-    providers: [
-        {
-            provide: DEMO_PATH_TOKEN,
-            useFactory: () =>
-                (<any>require).context(
-                    `!!raw-loader!./`,
-                    true,
-                    /.*\.(ts|html|less)$/
-                ),
-        },
     ],
     exports: [RouterModule],
 })

@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import _cloneDeep from "lodash/cloneDeep";
 
 import { ISelectChangedEvent, ISelectGroup, ToastService } from "@nova-ui/bits";
@@ -29,7 +33,7 @@ import { ISelectChangedEvent, ISelectGroup, ToastService } from "@nova-ui/bits";
     templateUrl: "./combobox-test.component.html",
 })
 export class ComboboxTestComponent implements OnInit {
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public dataset = [
         "Item 1",
         "Item 2",
@@ -151,7 +155,7 @@ export class ComboboxTestComponent implements OnInit {
     public separatorsDisplayedItems = this.separatorsDataset.itemsInGroups;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
 

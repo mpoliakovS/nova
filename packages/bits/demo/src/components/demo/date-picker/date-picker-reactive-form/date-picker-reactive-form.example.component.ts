@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
+import { UntypedFormControl, Validators } from "@angular/forms";
 import moment, { Moment } from "moment/moment";
 
 @Component({
@@ -29,7 +29,7 @@ import moment, { Moment } from "moment/moment";
 export class DatePickerReactiveFormExampleComponent {
     public dt: Moment = moment();
     public selectedDate: Date = new Date(this.dt.valueOf());
-    public control = new FormControl(this.dt, Validators.required);
+    public control = new UntypedFormControl(this.dt, Validators.required);
 
     constructor() {}
 

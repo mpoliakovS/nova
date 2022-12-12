@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 
 @Component({
     selector: "nui-select-v2-basic-example",
@@ -30,5 +30,5 @@ export class SelectV2BasicExampleComponent {
     public items = Array.from({ length: 50 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public selectControl = new FormControl();
+    public selectControl = new UntypedFormControl();
 }

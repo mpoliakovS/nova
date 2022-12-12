@@ -19,17 +19,21 @@
 //  THE SOFTWARE.
 
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 @Component({
     selector: "nui-form-field-complex-example",
     templateUrl: "./form-field-complex.example.component.html",
 })
 export class FormFieldComplexExampleComponent implements OnInit {
-    public fancyForm: FormGroup;
+    public fancyForm: UntypedFormGroup;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private changeDetector: ChangeDetectorRef
     ) {}
 
@@ -48,7 +52,7 @@ export class FormFieldComplexExampleComponent implements OnInit {
         );
     }
 
-    private matchPassword(group: FormGroup) {
+    private matchPassword(group: UntypedFormGroup) {
         const password = group.controls.password;
         const confirm = group.controls.confirmPassword;
         if (password.pristine || confirm.pristine) {

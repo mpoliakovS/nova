@@ -125,7 +125,10 @@ export interface IRenderSeries<TA extends IAccessors> {
     scales: Scales;
 }
 
-export interface IHighlightStrategy<TA, T = Renderer<TA>> {
+export interface IHighlightStrategy<
+    TA extends IAccessors<any>,
+    T = Renderer<TA>
+> {
     getDataPointIndex(
         renderer: T,
         series: IDataSeries<TA>,

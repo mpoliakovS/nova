@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 
 @Component({
     selector: "nui-combobox-v2-setting-value-example",
@@ -30,7 +30,7 @@ export class ComboboxV2SettingValueExampleComponent implements OnInit {
     public items = Array.from({ length: 50 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public comboboxControl: FormControl = new FormControl();
+    public comboboxControl: UntypedFormControl = new UntypedFormControl();
 
     public ngOnInit(): void {
         this.comboboxControl.setValue(this.items[1]);

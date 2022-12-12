@@ -1,8 +1,14 @@
 {
+    "compileOnSave": true,
     "compilerOptions": {
+        "experimentalDecorators": true,
         "baseUrl": ".",
         "declaration": false,
-        "lib": ["ES2019", "DOM"]
+        "lib": ["ES2019", "DOM"],
+        "paths": {
+            "@nova-ui/charts": ["./src/public-api.ts"]
+        }
     },
+    "exclude": ["node_modules", "atoms.d.ts"],
     "extends": "../../tsconfig.main.json"
 }

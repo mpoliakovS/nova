@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 
 import { CheckboxChangeEvent } from "@nova-ui/bits";
 
@@ -28,7 +28,7 @@ import { CheckboxChangeEvent } from "@nova-ui/bits";
     templateUrl: "./radio-group-test.component.html",
 })
 export class RadioGroupTestComponent implements OnInit {
-    public disabledForm: FormGroup;
+    public disabledForm: UntypedFormGroup;
 
     public fruits = [
         $localize`Banana`,
@@ -46,7 +46,7 @@ export class RadioGroupTestComponent implements OnInit {
     public selectedFruit: string;
     public selectedFruitInline: string;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.disabledForm = this.formBuilder.group({

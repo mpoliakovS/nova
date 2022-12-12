@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, EventEmitter, Inject, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { ToastService } from "@nova-ui/bits";
 
@@ -28,10 +32,10 @@ import { ToastService } from "@nova-ui/bits";
     templateUrl: "./nested-forms-as-component.example.component.html",
 })
 export class NestedFormsAsComponentExampleComponent implements OnInit {
-    public fancyForm: FormGroup;
+    public fancyForm: UntypedFormGroup;
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
 
@@ -44,10 +48,10 @@ export class NestedFormsAsComponentExampleComponent implements OnInit {
         });
     }
 
-    public formInitialized(name: string, form: FormGroup): void {
+    public formInitialized(name: string, form: UntypedFormGroup): void {
         this.fancyForm.setControl(name, form);
     }
-    public onSubmit(value: FormGroup): void {
+    public onSubmit(value: UntypedFormGroup): void {
         this.toastService.success({
             message: `Form is valid: ${value.valid}`,
             title: "Submit",
@@ -86,8 +90,8 @@ export class NestedFormsAsComponentExampleComponent implements OnInit {
     </div>`,
 })
 export class FirstCustomFormExampleComponent implements OnInit {
-    @Output() formReady = new EventEmitter<FormGroup>();
-    public firstForm: FormGroup;
+    @Output() formReady = new EventEmitter<UntypedFormGroup>();
+    public firstForm: UntypedFormGroup;
 
     public ngOnInit(): void {
         this.firstForm = this.fb.group({
@@ -98,7 +102,7 @@ export class FirstCustomFormExampleComponent implements OnInit {
         this.formReady.emit(this.firstForm);
     }
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: UntypedFormBuilder) {}
 }
 
 /**
@@ -132,8 +136,8 @@ export class FirstCustomFormExampleComponent implements OnInit {
     </div>`,
 })
 export class SecondCustomFormExampleComponent implements OnInit {
-    @Output() formReady = new EventEmitter<FormGroup>();
-    public secondForm: FormGroup;
+    @Output() formReady = new EventEmitter<UntypedFormGroup>();
+    public secondForm: UntypedFormGroup;
 
     public ngOnInit(): void {
         this.secondForm = this.fb.group({
@@ -144,5 +148,5 @@ export class SecondCustomFormExampleComponent implements OnInit {
         this.formReady.emit(this.secondForm);
     }
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: UntypedFormBuilder) {}
 }

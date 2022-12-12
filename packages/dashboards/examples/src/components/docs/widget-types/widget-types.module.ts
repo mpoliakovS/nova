@@ -18,7 +18,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { NgModule } from "@angular/core";
+import { NgModule, Type } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { NuiDocsModule } from "@nova-ui/bits";
@@ -31,9 +31,9 @@ const routes: Routes = [
     {
         path: "kpi",
         loadChildren: async () =>
-            import("components/docs/widget-types/kpi/kpi-docs.module").then(
+            import("./kpi/kpi-docs.module").then(
                 (m) => m.KpiDocsModule
-            ),
+            ) as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -43,9 +43,9 @@ const routes: Routes = [
     {
         path: "timeseries",
         loadChildren: async () =>
-            import(
-                "components/docs/widget-types/timeseries/timeseries-docs.module"
-            ).then((m) => m.TimeseriesDocsModule),
+            import("./timeseries/timeseries-docs.module").then(
+                (m) => m.TimeseriesDocsModule
+            ) as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -55,9 +55,9 @@ const routes: Routes = [
     {
         path: "table",
         loadChildren: async () =>
-            import("components/docs/widget-types/table/table-docs.module").then(
+            import("./table/table-docs.module").then(
                 (m) => m.TableDocsModule
-            ),
+            ) as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -67,9 +67,9 @@ const routes: Routes = [
     {
         path: "proportional",
         loadChildren: async () =>
-            import(
-                "components/docs/widget-types/proportional/proportional-docs.module"
-            ).then((m) => m.ProportionalDocsModule),
+            import("./proportional/proportional-docs.module").then(
+                (m) => m.ProportionalDocsModule
+            ) as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -79,9 +79,9 @@ const routes: Routes = [
     {
         path: "embedded",
         loadChildren: async () =>
-            import(
-                "components/docs/widget-types/embedded-content/embedded-content-docs.module"
-            ).then((m) => m.EmbeddedContentDocsModule),
+            import("./embedded-content/embedded-content-docs.module").then(
+                (m) => m.EmbeddedContentDocsModule
+            ) as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -91,9 +91,9 @@ const routes: Routes = [
     {
         path: "drilldown",
         loadChildren: async () =>
-            import(
-                "components/docs/widget-types/drilldown/drilldown-docs.module"
-            ).then((m) => m.DrilldownDocsModule),
+            import("./drilldown/drilldown-docs.module").then(
+                (m) => m.DrilldownDocsModule
+            ) as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,

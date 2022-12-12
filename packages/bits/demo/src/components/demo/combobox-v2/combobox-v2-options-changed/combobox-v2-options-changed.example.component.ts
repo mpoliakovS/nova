@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 
 @Component({
     selector: "nui-combobox-v2-options-changed-example",
@@ -43,8 +43,8 @@ export class ComboboxV2OpitionsChangedExampleComponent implements OnInit {
             $localize`Item 6`,
         ],
     ];
-    public comboboxControl = new FormControl();
-    public multiselectControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
+    public multiselectControl = new UntypedFormControl();
 
     public ngOnInit(): void {
         this.items = this.itemSet[0];

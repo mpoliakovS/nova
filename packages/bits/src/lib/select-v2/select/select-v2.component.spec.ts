@@ -35,7 +35,11 @@ import {
     tick,
     waitForAsync,
 } from "@angular/core/testing";
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+    UntypedFormControl,
+    FormsModule,
+    ReactiveFormsModule,
+} from "@angular/forms";
 import { By } from "@angular/platform-browser";
 
 import { KEYBOARD_CODE } from "../../../constants/keycode.constants";
@@ -57,7 +61,7 @@ import { SelectV2Component } from "./select-v2.component";
 })
 class SelectV2WrapperWithFormControlComponent {
     public items = Array.from({ length: 10 }).map((_, i) => `Item ${i}`);
-    public selectControl = new FormControl();
+    public selectControl = new UntypedFormControl();
     @ViewChild(SelectV2Component) select: SelectV2Component;
     constructor(public elRef: ElementRef<HTMLElement>) {}
 }
@@ -91,7 +95,7 @@ class SelectV2WrapperWithValueComponent {
 })
 class SelectV2WrapperAsyncComponent {
     public items: any[];
-    public selectControl = new FormControl();
+    public selectControl = new UntypedFormControl();
     @ViewChild(SelectV2Component) select: SelectV2Component;
     constructor(public elRef: ElementRef<HTMLElement>) {}
 

@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { ToastService } from "@nova-ui/bits";
 
@@ -28,11 +32,11 @@ import { ToastService } from "@nova-ui/bits";
     templateUrl: "./form-field-dynamic-disabling.example.component.html",
 })
 export class FormFieldDynamicDisablingExampleComponent implements OnInit {
-    public dynamicForm: FormGroup;
+    public dynamicForm: UntypedFormGroup;
     public visibleRadio: boolean;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
 

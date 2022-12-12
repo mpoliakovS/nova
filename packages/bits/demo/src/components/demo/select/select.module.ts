@@ -22,7 +22,6 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 
 import {
-    DEMO_PATH_TOKEN,
     NuiButtonModule,
     NuiDocsModule,
     NuiIconModule,
@@ -108,17 +107,6 @@ const routes = [
         SelectSeparatorsExampleComponent,
         SelectVisualTestComponent,
         SelectRemoveValueExampleComponent,
-    ],
-    providers: [
-        {
-            provide: DEMO_PATH_TOKEN,
-            useFactory: () =>
-                (<any>require).context(
-                    `!!raw-loader!./`,
-                    true,
-                    /.*\.(ts|html|less)$/
-                ),
-        },
     ],
     exports: [RouterModule],
 })

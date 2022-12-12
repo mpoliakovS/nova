@@ -18,7 +18,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { NgModule } from "@angular/core";
+import { NgModule, Type } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { ConfiguratorHeadingService } from "@nova-ui/dashboards";
@@ -35,29 +35,33 @@ const routes: Routes = [
         path: CustomizationModuleRoute.ConfiguratorSection,
         loadChildren: async () =>
             import(
-                "components/docs/tutorials/customization/configurator-section/custom-configurator-section.module"
-            ).then((m) => m.CustomConfiguratorSectionModule),
+                "./configurator-section/custom-configurator-section.module"
+            ).then((m) => m.CustomConfiguratorSectionModule) as Promise<
+                Type<any>
+            >,
     },
     {
         path: CustomizationModuleRoute.Widget,
         loadChildren: async () =>
-            import(
-                "components/docs/tutorials/customization/widget/custom-widget.module"
-            ).then((m) => m.CustomWidgetModule),
+            import("./widget/custom-widget.module").then(
+                (m) => m.CustomWidgetModule
+            ) as Promise<Type<any>>,
     },
     {
         path: CustomizationModuleRoute.Formatter,
         loadChildren: async () =>
-            import(
-                "components/docs/tutorials/customization/formatter/custom-formatter.module"
-            ).then((m) => m.CustomFormatterModuleRoute),
+            import("./formatter/custom-formatter.module").then(
+                (m) => m.CustomFormatterModuleRoute
+            ) as Promise<Type<any>>,
     },
     {
         path: CustomizationModuleRoute.DataSourceConfigurator,
         loadChildren: async () =>
             import(
-                "components/docs/tutorials/customization/data-source-configurator/custom-data-source-configurator.module"
-            ).then((m) => m.CustomDataSourceConfiguratorModuleRoute),
+                "./data-source-configurator/custom-data-source-configurator.module"
+            ).then((m) => m.CustomDataSourceConfiguratorModuleRoute) as Promise<
+                Type<any>
+            >,
     },
 ];
 

@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 @Component({
     selector: "nui-content-settings-example",
@@ -30,10 +34,10 @@ export class TabContentSettingsExampleComponent implements OnInit {
         "You can change your password using the form below:";
     public tabTitle: string = "Account Settings";
 
-    public dynamicForm: FormGroup;
+    public dynamicForm: UntypedFormGroup;
     public visibleRadio: boolean;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.dynamicForm = this.formBuilder.group({

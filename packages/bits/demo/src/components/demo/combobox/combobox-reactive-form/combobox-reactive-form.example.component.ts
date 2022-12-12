@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { ToastService } from "@nova-ui/bits";
 
@@ -28,14 +32,14 @@ import { ToastService } from "@nova-ui/bits";
     templateUrl: "./combobox-reactive-form.example.component.html",
 })
 export class ComboboxReactiveFormExampleComponent implements OnInit {
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public dataset = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "Item 2",
     };
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
 

@@ -25,7 +25,11 @@ import {
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import {
     DialogService,
@@ -44,7 +48,7 @@ export class WizardVisualTestComponent implements OnInit {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
     @ViewChild("dialogWizardBusy") dialogWizardBusy: WizardComponent;
 
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public hint = "example-hint";
     public caption = "example-caption";
     public secondStepBusyConfig: IBusyConfig = {
@@ -60,7 +64,7 @@ export class WizardVisualTestComponent implements OnInit {
     private activeDialog: NuiDialogRef;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(DialogService) private dialogService: DialogService
     ) {}
 

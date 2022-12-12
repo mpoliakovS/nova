@@ -30,7 +30,11 @@ import {
     ViewChild,
     ViewContainerRef,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import { Subscription } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 
@@ -57,8 +61,8 @@ import { ELEMENT_DATA, ITestTableModel } from "./table-test-data-source";
 })
 export class TableTestComponent implements AfterViewInit, OnDestroy, OnInit {
     public dataSource?: ITestTableModel[] = ELEMENT_DATA;
-    public myForm: FormGroup;
-    public optionsForm: FormGroup;
+    public myForm: UntypedFormGroup;
+    public optionsForm: UntypedFormGroup;
     public newColumn: string;
     public availableColumns = [
         "position",
@@ -109,7 +113,7 @@ export class TableTestComponent implements AfterViewInit, OnDestroy, OnInit {
         @Inject(DialogService) private dialogService: DialogService,
         @Inject(TableStateHandlerService)
         private tableStateHandlerService: TableStateHandlerService,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         public changeDetection: ChangeDetectorRef,
         public viewContainerRef: ViewContainerRef,
         public applicationRef: ApplicationRef,

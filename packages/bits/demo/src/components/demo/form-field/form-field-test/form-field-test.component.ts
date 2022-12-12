@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import moment from "moment/moment";
 
 @Component({
@@ -27,11 +31,11 @@ import moment from "moment/moment";
     templateUrl: "./form-field-test.component.html",
 })
 export class FormFieldTestComponent implements OnInit {
-    public dynamicForm: FormGroup;
+    public dynamicForm: UntypedFormGroup;
 
     public dateTimePickerModel: string;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public vegetables = [
         $localize`Cabbage`,

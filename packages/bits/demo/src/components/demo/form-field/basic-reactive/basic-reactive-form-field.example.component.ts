@@ -19,16 +19,20 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 @Component({
     selector: "nui-form-field-basic-reactive-example",
     templateUrl: "./basic-reactive-form-field.example.component.html",
 })
 export class FormFieldBasicReactiveExampleComponent implements OnInit {
-    public reactiveForm: FormGroup;
+    public reactiveForm: UntypedFormGroup;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.reactiveForm = this.formBuilder.group({

@@ -28,7 +28,6 @@ import { APOLLO_OPTIONS } from "apollo-angular";
 import { HttpLink } from "apollo-angular/http";
 
 import {
-    DEMO_PATH_TOKEN,
     NuiBusyModule,
     NuiButtonModule,
     NuiCheckboxModule,
@@ -347,15 +346,6 @@ const staticRoutes: Routes = [
     providers: [
         DatePipe,
         FakeHTTPService,
-        {
-            provide: DEMO_PATH_TOKEN,
-            useFactory: () =>
-                (<any>require).context(
-                    `!!raw-loader!./`,
-                    true,
-                    /.*\.(ts|html|less)$/
-                ),
-        },
         {
             provide: APOLLO_OPTIONS,
             useFactory: (httpLink: HttpLink) => ({

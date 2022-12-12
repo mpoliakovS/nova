@@ -25,7 +25,11 @@ import {
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import {
     DialogService,
@@ -47,7 +51,7 @@ export class WizardSimpleExampleComponent implements OnInit {
     @ViewChild("wizardStep3") wizardStep3Component: WizardStepComponent;
     @ViewChild("dynamicStep") dynamicStep: WizardStepComponent;
 
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public hint = $localize`example-hint`;
     public caption = $localize`example-caption`;
     public vegetables = [
@@ -70,7 +74,7 @@ export class WizardSimpleExampleComponent implements OnInit {
     private activeDialog: NuiDialogRef;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(ToastService) private toastService: ToastService,
         @Inject(DialogService) private dialogService: DialogService
     ) {}

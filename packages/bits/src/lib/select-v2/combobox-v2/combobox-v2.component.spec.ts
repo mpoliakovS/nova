@@ -34,7 +34,11 @@ import {
     tick,
     waitForAsync,
 } from "@angular/core/testing";
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+    UntypedFormControl,
+    FormsModule,
+    ReactiveFormsModule,
+} from "@angular/forms";
 import { By } from "@angular/platform-browser";
 
 import { NuiOverlayModule } from "../../overlay/overlay.module";
@@ -71,7 +75,7 @@ const nonExistentItem = { id: "item-101", name: "Item 101" };
 })
 class ComboboxV2WrapperComponent {
     public items = Array.from({ length: 10 }).map((_, i) => `Item ${i}`);
-    public comboboxControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
     @ViewChild(ComboboxV2Component) combobox: ComboboxV2Component;
     constructor(public elRef: ElementRef<HTMLElement>) {}
 }

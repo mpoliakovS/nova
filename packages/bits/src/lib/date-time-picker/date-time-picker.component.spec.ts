@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    FormsModule,
+    ReactiveFormsModule,
+} from "@angular/forms";
 import moment from "moment/moment";
 
 import {
@@ -101,7 +105,7 @@ describe("components >", () => {
                     UtilService,
                     EdgeDetectionService,
                     DomUtilService,
-                    FormBuilder,
+                    UntypedFormBuilder,
                     LoggerService,
                     IconService,
                 ],

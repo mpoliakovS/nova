@@ -39,7 +39,7 @@ import {
     TemplateRef,
     ViewEncapsulation,
 } from "@angular/core";
-import { FormControl, FormGroupDirective, NgForm } from "@angular/forms";
+import { UntypedFormControl, FormGroupDirective, NgForm } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -78,7 +78,8 @@ export class WizardStepV2Component
     @Input() stepIndex: number;
 
     /** Content for step label given by `<ng-template wizardStepLabel>`. */
-    @ContentChild(WizardStepLabelDirective) stepLabel: WizardStepLabelDirective;
+    @ContentChild(WizardStepLabelDirective)
+    declare stepLabel: WizardStepLabelDirective;
 
     /** Content for footer given by `<ng-template wizardStepFooter>`. */
     @ContentChild(WizardStepFooterDirective)
@@ -108,7 +109,7 @@ export class WizardStepV2Component
 
     /** Custom error state matcher that additionally checks for validity of interacted form. */
     public isErrorState(
-        control?: FormControl,
+        control?: UntypedFormControl,
         form?: FormGroupDirective | NgForm
     ): boolean {
         const originalErrorState = this._errorStateMatcher.isErrorState(

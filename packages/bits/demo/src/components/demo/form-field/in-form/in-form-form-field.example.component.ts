@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import moment from "moment/moment";
 
 @Component({
@@ -27,7 +31,7 @@ import moment from "moment/moment";
     templateUrl: "./in-form-form-field.example.component.html",
 })
 export class FormFieldInFormExampleComponent implements OnInit {
-    public fancyForm: FormGroup;
+    public fancyForm: UntypedFormGroup;
 
     public vegetables = [
         $localize`Cabbage`,
@@ -37,7 +41,7 @@ export class FormFieldInFormExampleComponent implements OnInit {
     ];
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private changeDetector: ChangeDetectorRef
     ) {}
     public ngOnInit(): void {

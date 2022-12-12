@@ -23,7 +23,7 @@ import {
     Component,
     SecurityContext,
 } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
@@ -37,7 +37,7 @@ export class ComboboxV2CreateOptionMultiselectExampleComponent {
         (_, i) => $localize`Item ${i}`
     );
 
-    public comboboxControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
 
     constructor(private domSanitizer: DomSanitizer) {}
 

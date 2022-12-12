@@ -28,9 +28,9 @@ import {
     ViewChild,
 } from "@angular/core";
 import {
-    FormBuilder,
-    FormControl,
-    FormGroup,
+    UntypedFormBuilder,
+    UntypedFormControl,
+    UntypedFormGroup,
     Validators,
 } from "@angular/forms";
 import { Observable, of, Subject } from "rxjs";
@@ -127,10 +127,10 @@ export class ComboboxV2TestExampleComponent implements OnInit, AfterViewInit {
 
     // Form
     public error: boolean = true;
-    public comboboxControl = new FormControl();
-    public comboboxControlSingle = new FormControl();
-    public comboboxControlMulti = new FormControl();
-    public fancyForm: FormGroup;
+    public comboboxControl = new UntypedFormControl();
+    public comboboxControlSingle = new UntypedFormControl();
+    public comboboxControlMulti = new UntypedFormControl();
+    public fancyForm: UntypedFormGroup;
 
     public closePopoverSubject: Subject<void> = new Subject<void>();
 
@@ -145,7 +145,7 @@ export class ComboboxV2TestExampleComponent implements OnInit, AfterViewInit {
     public comboboxMultiDimensions: ComboboxV2Component;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private dialogService: DialogService,
         private toastService: ToastService
     ) {}

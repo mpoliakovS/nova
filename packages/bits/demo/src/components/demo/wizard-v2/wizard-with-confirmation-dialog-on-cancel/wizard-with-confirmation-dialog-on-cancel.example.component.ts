@@ -27,7 +27,11 @@ import {
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import {
     DialogService,
@@ -49,14 +53,14 @@ export class WizardWithConfirmationDialogOnCancelExampleComponent
     implements OnInit
 {
     public confirmationDialog: NuiDialogRef;
-    public form: FormGroup;
+    public form: UntypedFormGroup;
 
     @ViewChild("wizard") private wizard: WizardHorizontalComponent;
 
     constructor(
         @Inject(DialogService) private dialogService: DialogService,
         private toastService: ToastService,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         public cd: ChangeDetectorRef
     ) {}
 
@@ -104,7 +108,7 @@ export class WizardWithConfirmationDialogOnCancelExampleComponent
     }
 
     private initForm(): void {
-        this.form = new FormGroup({
+        this.form = new UntypedFormGroup({
             personDetails: this.formBuilder.group({
                 firstName: ["", [Validators.required, Validators.minLength(3)]],
                 lastName: ["", [Validators.required, Validators.minLength(3)]],

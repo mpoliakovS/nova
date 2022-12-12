@@ -116,10 +116,9 @@ export class WizardHorizontalComponent
         private dir: Directionality,
         private cdRef: ChangeDetectorRef,
         private el: ElementRef,
-        private zone: NgZone,
-        @Inject(DOCUMENT) _document: any
+        private zone: NgZone
     ) {
-        super(dir, cdRef, el, _document);
+        super(dir, cdRef, el);
     }
 
     public ngOnInit(): void {

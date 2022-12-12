@@ -27,7 +27,11 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import { tap } from "rxjs/operators";
 
 import { WizardDirective, WizardStepV2Component } from "@nova-ui/bits";
@@ -61,17 +65,17 @@ export class WizardCustomComponent extends WizardDirective {}
     ],
 })
 export class WizardCustomExampleComponent implements OnInit, AfterViewInit {
-    public formGroup: FormGroup;
+    public formGroup: UntypedFormGroup;
     public steps: number = 1;
     public selectedIndex: number = 0;
     public progress: number;
 
     @ViewChild("wizard") wizard: WizardCustomComponent;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
-        this.formGroup = new FormGroup({
+        this.formGroup = new UntypedFormGroup({
             personDetails: this.formBuilder.group({
                 name: ["", [Validators.required, Validators.minLength(3)]],
                 symptoms: [undefined, Validators.required],
@@ -119,11 +123,11 @@ export class WizardCustomExampleComponent implements OnInit, AfterViewInit {
     validate(step: WizardStepV2Component): void {
         // mark all fields from current step as touched
         // in order to display the validation messages
-        Object.keys((step.stepControl as FormGroup)?.controls || {}).forEach(
-            (key) => {
-                const field = this.wizard.selected.stepControl.get(key);
-                field?.markAsTouched();
-            }
-        );
+        Object.keys(
+            (step.stepControl as UntypedFormGroup)?.controls || {}
+        ).forEach((key) => {
+            const field = this.wizard.selected.stepControl.get(key);
+            field?.markAsTouched();
+        });
     }
 }

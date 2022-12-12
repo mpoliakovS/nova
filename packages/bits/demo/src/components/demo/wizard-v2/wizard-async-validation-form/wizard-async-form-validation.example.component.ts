@@ -20,9 +20,9 @@
 
 import { Component, OnInit, ViewChild } from "@angular/core";
 import {
-    FormBuilder,
-    FormControl,
-    FormGroup,
+    UntypedFormBuilder,
+    UntypedFormControl,
+    UntypedFormGroup,
     Validators,
 } from "@angular/forms";
 import { of } from "rxjs";
@@ -34,7 +34,8 @@ import {
     WizardStepV2Component,
 } from "@nova-ui/bits";
 
-const fakeAsyncValidator = (c: FormControl) => of(null).pipe(delay(4000));
+const fakeAsyncValidator = (c: UntypedFormControl) =>
+    of(null).pipe(delay(4000));
 
 @Component({
     selector: "nui-wizard-async-form-validation-example",
@@ -42,17 +43,17 @@ const fakeAsyncValidator = (c: FormControl) => of(null).pipe(delay(4000));
 })
 export class WizardAsyncFormValidationExampleComponent implements OnInit {
     public busy: boolean;
-    public form: FormGroup;
+    public form: UntypedFormGroup;
 
     @ViewChild("wizard") wizard: WizardHorizontalComponent;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private toastService: ToastService
     ) {}
 
     public ngOnInit(): void {
-        this.form = new FormGroup({
+        this.form = new UntypedFormGroup({
             personDetails: this.formBuilder.group({
                 name: [
                     "",

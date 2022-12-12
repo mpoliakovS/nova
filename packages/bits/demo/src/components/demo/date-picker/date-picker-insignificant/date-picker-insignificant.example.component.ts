@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, Inject } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import moment, { Moment } from "moment/moment";
 
 import { IToastService, ToastService } from "@nova-ui/bits";
@@ -31,7 +31,7 @@ import { IToastService, ToastService } from "@nova-ui/bits";
 export class DatePickerInsignificantExampleComponent {
     public dt: Moment = moment().endOf("day");
     public selectedDate: Date;
-    public control = new FormControl(this.dt);
+    public control = new UntypedFormControl(this.dt);
 
     constructor(@Inject(ToastService) private toastService: IToastService) {}
 

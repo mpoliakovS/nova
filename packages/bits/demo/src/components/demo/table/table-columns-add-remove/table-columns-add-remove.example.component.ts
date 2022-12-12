@@ -26,7 +26,11 @@ import {
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { DialogService, TableComponent } from "@nova-ui/bits";
 
@@ -48,7 +52,7 @@ interface IExampleTableModel {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableColumnsAddRemoveExampleComponent implements OnInit {
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public availableColumns = [
         "issue",
         "project",
@@ -75,7 +79,7 @@ export class TableColumnsAddRemoveExampleComponent implements OnInit {
 
     constructor(
         @Inject(DialogService) private dialogService: DialogService,
-        private formBuilder: FormBuilder
+        private formBuilder: UntypedFormBuilder
     ) {}
 
     public ngOnInit(): void {

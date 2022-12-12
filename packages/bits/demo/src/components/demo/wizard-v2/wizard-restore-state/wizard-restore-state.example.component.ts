@@ -26,7 +26,11 @@ import {
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import isEqual from "lodash/isEqual";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -50,7 +54,7 @@ interface IWizardStepData {
     styleUrls: ["wizard-restore-state.example.component.less"],
 })
 export class WizardRestoreStateExampleComponent implements OnInit, OnDestroy {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public activeDialog: NuiDialogRef;
     public state: IWizardState;
     public dynamicSteps: IWizardStepData[] = [];
@@ -62,13 +66,13 @@ export class WizardRestoreStateExampleComponent implements OnInit, OnDestroy {
     @ViewChild("dynamicTemplate2") public template2: TemplateRef<string>;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         @Inject(DialogService) private dialogService: DialogService,
         private toastService: ToastService
     ) {}
 
     public ngOnInit(): void {
-        this.form = new FormGroup({
+        this.form = new UntypedFormGroup({
             personDetails: this.formBuilder.group({
                 name: ["", [Validators.required, Validators.minLength(3)]],
                 privacy: [false, [Validators.requiredTrue]],

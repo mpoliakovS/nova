@@ -19,18 +19,22 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 @Component({
     selector: "nui-form-field-visual-test",
     templateUrl: "./form-field-visual-test.component.html",
 })
 export class FormFieldVisualTestComponent implements OnInit {
-    public fancyForm: FormGroup;
+    public fancyForm: UntypedFormGroup;
 
     public vegetables = ["Cabbage", "Potato", "Tomato", "Carrot"];
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
     public ngOnInit(): void {
         this.fancyForm = this.formBuilder.group({
             nickname: this.formBuilder.control("", [
@@ -51,7 +55,7 @@ export class FormFieldVisualTestComponent implements OnInit {
         });
     }
 
-    formInitialized(name: string, form: FormGroup): void {
+    formInitialized(name: string, form: UntypedFormGroup): void {
         this.fancyForm.setControl(name, form);
     }
 

@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { ToastService } from "@nova-ui/bits";
 
@@ -28,7 +32,7 @@ import { ToastService } from "@nova-ui/bits";
     templateUrl: "./checkbox-group-in-form.example.component.html",
 })
 export class CheckboxGroupInFormExampleComponent implements OnInit {
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public cabbage = $localize`Cabbage`;
     public potato = $localize`Potato`;
     public tomato = $localize`Tomato`;
@@ -37,7 +41,7 @@ export class CheckboxGroupInFormExampleComponent implements OnInit {
     public selectedVegetables = [this.cabbage];
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private toastService: ToastService
     ) {}
 

@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { IWizardSelectionEvent, WizardComponent } from "@nova-ui/bits";
 
@@ -29,10 +33,10 @@ import { IWizardSelectionEvent, WizardComponent } from "@nova-ui/bits";
 })
 export class WizardResetStepExampleComponent implements OnInit {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
-    public myForm: FormGroup;
-    public secondStepForm: FormGroup;
+    public myForm: UntypedFormGroup;
+    public secondStepForm: UntypedFormGroup;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.myForm = this.formBuilder.group({

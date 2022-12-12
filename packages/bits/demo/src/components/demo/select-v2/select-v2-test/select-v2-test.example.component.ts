@@ -30,9 +30,9 @@ import {
     ViewEncapsulation,
 } from "@angular/core";
 import {
-    FormBuilder,
-    FormControl,
-    FormGroup,
+    UntypedFormBuilder,
+    UntypedFormControl,
+    UntypedFormGroup,
     Validators,
 } from "@angular/forms";
 import { Subject } from "rxjs";
@@ -65,7 +65,7 @@ export class SelectV2TestExampleComponent
 {
     constructor(
         @Inject(DialogService) private dialogService: DialogService,
-        private formBuilder: FormBuilder
+        private formBuilder: UntypedFormBuilder
     ) {}
     public selectedItem: IExampleItem;
     public handleClicksOutside: boolean = false;
@@ -112,8 +112,8 @@ export class SelectV2TestExampleComponent
     );
 
     // Form
-    public selectControl = new FormControl();
-    public fancyForm: FormGroup;
+    public selectControl = new UntypedFormControl();
+    public fancyForm: UntypedFormGroup;
 
     // Test
     public customStylesOverlayConfig: OverlayConfig = {

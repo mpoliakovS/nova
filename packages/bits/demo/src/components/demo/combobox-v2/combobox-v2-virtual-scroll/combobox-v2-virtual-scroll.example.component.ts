@@ -26,7 +26,7 @@ import {
     OnDestroy,
     ViewChild,
 } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { Observable, of, Subject } from "rxjs";
 // eslint-disable-next-line import/no-deprecated
 import { delay, filter, takeUntil, tap } from "rxjs/operators";
@@ -46,7 +46,7 @@ export class ComboboxV2VirtualScrollExampleComponent
     public items = Array.from({ length: 100000 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public comboboxControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
     public filteredItems: Observable<any[]> = of([...this.items]);
     public containerHeight: number = defaultContainerHeight;
 

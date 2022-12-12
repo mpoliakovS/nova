@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
+import { UntypedFormControl, Validators } from "@angular/forms";
 import moment from "moment-timezone";
 
 import { ISelectChangedEvent } from "@nova-ui/bits";
@@ -32,7 +32,7 @@ moment.tz.add(zonesData.zones);
     templateUrl: "./date-picker-timezone.example.component.html",
 })
 export class DatePickerTimezoneExampleComponent {
-    public control = new FormControl(moment(), Validators.required);
+    public control = new UntypedFormControl(moment(), Validators.required);
     public zones: string[] = zonesData.zones.map(
         (z: string) => z.split("|")[0]
     );

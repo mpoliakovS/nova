@@ -192,10 +192,6 @@ export class TableComponent<T>
               };
     }
 
-    public getPreselectedItems(items: ReadonlyArray<T>): T[] {
-        return this.dataSource.filter((item) => _some(items, item));
-    }
-
     // using on changes hook for datasource because if we use pagination,
     // datasource changes when we change page and rows should know about this
     public ngOnChanges(changes: ComponentChanges<TableComponent<T>>): void {
@@ -234,13 +230,13 @@ export class TableComponent<T>
     public ngOnInit(): void {
         super.ngOnInit();
         const dataSet = this.dataSource as Array<T>;
-        const firstRow: TableRowData = dataSet && dataSet[0];
-        const columns = _keys(firstRow);
+        const firstRow: T = dataSet && dataSet[0];
+        const columns: string[] = _keys(firstRow);
         this.tableStateHandlerService.tableColumns = columns;
 
         columns.forEach((column) => {
             const alignment = this.tableStateHandlerService.defineAlignment(
-                firstRow[column]
+                firstRow[column as keyof T]
             );
             this.tableStateHandlerService.setAlignment(column, alignment);
         });

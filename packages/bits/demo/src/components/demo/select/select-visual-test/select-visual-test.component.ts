@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 import { ISelectChangedEvent } from "@nova-ui/bits";
 
@@ -32,7 +36,7 @@ import { ISelectChangedEvent } from "@nova-ui/bits";
 })
 export class SelectVisualTestComponent implements OnInit {
     public isRequired = true;
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public datasetBasic = {
         items: [
             "Item 1",
@@ -83,7 +87,7 @@ export class SelectVisualTestComponent implements OnInit {
         selectedItem: $localize`Item 1`,
     };
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public datasetCustom = {
         displayValue: "value",

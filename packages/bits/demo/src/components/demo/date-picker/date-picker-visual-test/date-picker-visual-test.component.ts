@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 import moment, { Moment } from "moment/moment";
 
 @Component({
@@ -27,7 +31,7 @@ import moment, { Moment } from "moment/moment";
     templateUrl: "./date-picker-visual-test.component.html",
 })
 export class DatePickerVisualTestComponent implements OnInit {
-    public myForm: FormGroup;
+    public myForm: UntypedFormGroup;
     public initDate: Moment = moment().set({
         year: 2017,
         month: 11,
@@ -37,7 +41,7 @@ export class DatePickerVisualTestComponent implements OnInit {
     });
     public emptyDate = moment("");
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.myForm = this.formBuilder.group({

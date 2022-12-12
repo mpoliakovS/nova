@@ -19,14 +19,14 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 
 @Component({
     selector: "nui-checkbox-group-test-example",
     templateUrl: "checkbox-group-test.component.html",
 })
 export class CheckboxGroupTestComponent implements OnInit {
-    public testForm: FormGroup;
+    public testForm: UntypedFormGroup;
     public cabbage = "Cabbage";
     public potato = "Potato";
     public tomato = "Tomato";
@@ -36,7 +36,7 @@ export class CheckboxGroupTestComponent implements OnInit {
     public hints = [this.cabbage, this.tomato];
     public selectedVegetables = [this.potato, this.tomato, this.disabledOne];
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.testForm = this.formBuilder.group({

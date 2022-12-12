@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { Subject } from "rxjs";
 
 interface IExampleItem {
@@ -37,7 +37,7 @@ export class ComboboxV2CustomTypeaheadExampleComponent {
         name: $localize`Item ${i}`,
     }));
 
-    public comboboxControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
 
     // Use this in the template with async pipe to dynamically render the filtered items
     public filteredItems$: Subject<any[]> = new Subject<any[]>();

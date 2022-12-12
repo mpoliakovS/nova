@@ -19,7 +19,11 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from "@angular/forms";
 
 @Component({
     selector: "nui-popup-with-custom-content-example",
@@ -28,7 +32,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
     encapsulation: ViewEncapsulation.None,
 })
 export class PopupWithCustomContentComponent implements OnInit {
-    public demoFormGroup: FormGroup;
+    public demoFormGroup: UntypedFormGroup;
     public icon = "caret-down";
     public width = "200px";
     public itemsSource: string[] = [
@@ -38,7 +42,7 @@ export class PopupWithCustomContentComponent implements OnInit {
         $localize`Item 4`,
     ];
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.demoFormGroup = this.formBuilder.group({

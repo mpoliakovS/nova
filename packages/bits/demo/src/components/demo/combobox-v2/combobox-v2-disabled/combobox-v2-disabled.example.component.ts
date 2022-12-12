@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 
 interface IExampleItem {
     id: string;
@@ -37,7 +37,7 @@ export class ComboboxV2DisabledExampleComponent {
         name: $localize`Item ${i}`,
         disabled: Boolean(Math.round(Math.random())),
     }));
-    public comboboxControl = new FormControl();
+    public comboboxControl = new UntypedFormControl();
     public isComboboxDisabled = false;
 
     public displayFn(item: IExampleItem): string {

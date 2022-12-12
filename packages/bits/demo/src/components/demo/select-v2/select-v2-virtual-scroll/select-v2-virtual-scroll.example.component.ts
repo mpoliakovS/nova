@@ -27,7 +27,7 @@ import {
     OnInit,
     ViewChild,
 } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -46,7 +46,7 @@ export class SelectV2VirtualScrollExampleComponent
         (_, i) => $localize`Item ${i}`
     );
 
-    public selectControl = new FormControl();
+    public selectControl = new UntypedFormControl();
     public containerHeight: number = 300;
 
     private readonly destroy$ = new Subject<void>();

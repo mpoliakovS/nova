@@ -19,14 +19,14 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 
 @Component({
     selector: "nui-radio-group-visual-test",
     templateUrl: "./radio-group-visual-test.component.html",
 })
 export class RadioGroupVisualTestComponent implements OnInit {
-    public disabledForm: FormGroup;
+    public disabledForm: UntypedFormGroup;
     public colors = ["Red", "Green", "Blue"];
     public colorHints = {
         Red: "hot color",
@@ -37,7 +37,7 @@ export class RadioGroupVisualTestComponent implements OnInit {
     public selectedFruit: string;
     public selectedColor: string;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {}
 
     public ngOnInit(): void {
         this.disabledForm = this.formBuilder.group({
