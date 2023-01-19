@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 interface IExampleItem {
     id: string;
@@ -33,13 +33,13 @@ interface IExampleItem {
     host: { class: "select-container" },
 })
 export class SelectV2CustomizeOptionsExampleComponent {
-    public icons: any[] = ["check", "email", "execute"];
+    public icons: string[] = ["check", "email", "execute"];
     public items: IExampleItem[] = Array.from({ length: 100 }).map((_, i) => ({
         id: `value-${i}`,
         name: $localize`Item ${i}`,
         icon: this.getRandomIcon(),
     }));
-    public selectControl = new UntypedFormControl();
+    public selectControl = new FormControl<IExampleItem | null>(null);
 
     private getRandomIcon() {
         return this.icons[Math.round(Math.random() * 2)];

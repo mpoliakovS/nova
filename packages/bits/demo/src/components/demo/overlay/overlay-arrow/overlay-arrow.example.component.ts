@@ -29,7 +29,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -61,10 +61,10 @@ export class OverlayArrowExampleComponent implements AfterViewInit, OnDestroy {
         panelClass: [CUSTOM_OVERLAY_PANEL_CLASS],
     };
 
-    public positionSelectControl = new UntypedFormControl(
-        this.possiblePositions[0]
-    );
-    public arrowSelectControl = new UntypedFormControl(true);
+    public positionSelectControl = new FormControl(this.possiblePositions[0], {
+        nonNullable: true,
+    });
+    public arrowSelectControl = new FormControl(true);
     @ViewChild(OverlayComponent) public overlay: OverlayComponent;
 
     public ngAfterViewInit(): void {

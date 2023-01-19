@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { UntypedFormControl, Validators } from "@angular/forms";
+import { FormControl, Validators } from "@angular/forms";
 import { Moment } from "moment/moment";
 
 @Component({
@@ -30,10 +30,7 @@ export class DateTimePickerEmptyStateComponent {
     public dt: Moment | undefined = undefined;
     public selectedDate: Date | String = "";
     public initEmpty: boolean = true;
-    public control: UntypedFormControl = new UntypedFormControl(
-        this.dt,
-        Validators.required
-    );
+    public control = new FormControl(this.dt, Validators.required);
 
     constructor() {}
 

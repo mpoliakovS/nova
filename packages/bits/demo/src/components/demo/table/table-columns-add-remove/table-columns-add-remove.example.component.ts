@@ -26,11 +26,7 @@ import {
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import { DialogService, TableComponent } from "@nova-ui/bits";
 
@@ -51,8 +47,7 @@ interface IExampleTableModel {
     styleUrls: ["table-columns-add-remove.example.component.less"],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableColumnsAddRemoveExampleComponent implements OnInit {
-    public myForm: UntypedFormGroup;
+export class TableColumnsAddRemoveExampleComponent {
     public availableColumns = [
         "issue",
         "project",
@@ -73,23 +68,20 @@ export class TableColumnsAddRemoveExampleComponent implements OnInit {
     ];
     // full copy of displayed columns added to update columns only when updateTable() is called
     public displayedColumnsCopy = this.displayedColumns.slice();
+    public myForm = this.formBuilder.group({
+        checkboxGroup: this.formBuilder.control(this.displayedColumnsCopy, [
+            Validators.required,
+            Validators.minLength(3),
+        ]),
+    });
     public newColumn: string;
     public dataSource = getData();
     @ViewChild(TableComponent) table: TableComponent<IExampleTableModel>;
 
     constructor(
         @Inject(DialogService) private dialogService: DialogService,
-        private formBuilder: UntypedFormBuilder
+        private formBuilder: FormBuilder
     ) {}
-
-    public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            checkboxGroup: this.formBuilder.control(this.displayedColumnsCopy, [
-                Validators.required,
-                Validators.minLength(3),
-            ]),
-        });
-    }
 
     public columnsChanged(columns: any): void {
         this.displayedColumnsCopy = columns;

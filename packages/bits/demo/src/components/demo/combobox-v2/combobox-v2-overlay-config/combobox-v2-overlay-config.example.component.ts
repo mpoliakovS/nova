@@ -20,7 +20,7 @@
 
 import { OverlayConfig } from "@angular/cdk/overlay";
 import { Component } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 import { OVERLAY_WITH_POPUP_STYLES_CLASS } from "@nova-ui/bits";
 
@@ -43,5 +43,5 @@ export class ComboboxV2OverlayConfigExampleComponent {
         ],
     };
 
-    public comboboxControl = new UntypedFormControl();
+    public comboboxControl = new FormControl<string | null>(null);
 }

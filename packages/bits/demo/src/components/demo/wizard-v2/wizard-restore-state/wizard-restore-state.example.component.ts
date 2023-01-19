@@ -26,21 +26,17 @@ import {
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import isEqual from "lodash/isEqual";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
 import {
     DialogService,
-    NuiDialogRef,
-    WizardStepV2Component,
     IWizardState,
+    NuiDialogRef,
     ToastService,
+    WizardStepV2Component,
 } from "@nova-ui/bits";
 
 interface IWizardStepData {
@@ -54,41 +50,37 @@ interface IWizardStepData {
     styleUrls: ["wizard-restore-state.example.component.less"],
 })
 export class WizardRestoreStateExampleComponent implements OnInit, OnDestroy {
-    public form: UntypedFormGroup;
+    public form = this.formBuilder.group({
+        personDetails: this.formBuilder.group({
+            name: ["", [Validators.required, Validators.minLength(3)]],
+            privacy: [false, [Validators.requiredTrue]],
+        }),
+        organization: this.formBuilder.group({
+            title: ["", [Validators.required]],
+            date: ["", [Validators.required]],
+            createDynamicStep1: [false],
+            createDynamicStep2: [false],
+        }),
+        contactDetails: this.formBuilder.group({
+            email: ["", [Validators.required, Validators.email]],
+            options: [""],
+        }),
+    });
     public activeDialog: NuiDialogRef;
     public state: IWizardState;
     public dynamicSteps: IWizardStepData[] = [];
     public awesome: boolean = false;
-
-    private readonly destroy$ = new Subject<void>();
-
     @ViewChild("dynamicTemplate1") public template1: TemplateRef<string>;
     @ViewChild("dynamicTemplate2") public template2: TemplateRef<string>;
+    private readonly destroy$ = new Subject<void>();
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(DialogService) private dialogService: DialogService,
         private toastService: ToastService
     ) {}
 
     public ngOnInit(): void {
-        this.form = new UntypedFormGroup({
-            personDetails: this.formBuilder.group({
-                name: ["", [Validators.required, Validators.minLength(3)]],
-                privacy: [false, [Validators.requiredTrue]],
-            }),
-            organization: this.formBuilder.group({
-                title: ["", [Validators.required]],
-                date: ["", [Validators.required]],
-                createDynamicStep1: [false],
-                createDynamicStep2: [false],
-            }),
-            contactDetails: this.formBuilder.group({
-                email: ["", [Validators.required, Validators.email]],
-                options: [""],
-            }),
-        });
-
         this.form
             .get(["organization", "createDynamicStep1"])
             ?.valueChanges.pipe(takeUntil(this.destroy$))

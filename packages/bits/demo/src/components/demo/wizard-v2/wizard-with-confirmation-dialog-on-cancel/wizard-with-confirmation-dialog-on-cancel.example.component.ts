@@ -23,15 +23,10 @@ import {
     ChangeDetectorRef,
     Component,
     Inject,
-    OnInit,
     TemplateRef,
     ViewChild,
 } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import {
     DialogService,
@@ -49,24 +44,30 @@ import {
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WizardWithConfirmationDialogOnCancelExampleComponent
-    implements OnInit
-{
+export class WizardWithConfirmationDialogOnCancelExampleComponent {
     public confirmationDialog: NuiDialogRef;
-    public form: UntypedFormGroup;
+    public form = this.formBuilder.group({
+        personDetails: this.formBuilder.group({
+            firstName: ["", [Validators.required, Validators.minLength(3)]],
+            lastName: ["", [Validators.required, Validators.minLength(3)]],
+        }),
+        contactDetails: this.formBuilder.group({
+            email: ["", [Validators.required, Validators.email]],
+            phone: [""],
+        }),
+        confirm: this.formBuilder.group({
+            confirmed: [false, Validators.requiredTrue],
+        }),
+    });
 
     @ViewChild("wizard") private wizard: WizardHorizontalComponent;
 
     constructor(
         @Inject(DialogService) private dialogService: DialogService,
         private toastService: ToastService,
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         public cd: ChangeDetectorRef
     ) {}
-
-    public ngOnInit(): void {
-        this.initForm();
-    }
 
     // Open confirmation dialog
     public openConfirmationDialog(content: TemplateRef<string>): void {
@@ -105,21 +106,5 @@ export class WizardWithConfirmationDialogOnCancelExampleComponent
             },
         });
         this.wizard.reset();
-    }
-
-    private initForm(): void {
-        this.form = new UntypedFormGroup({
-            personDetails: this.formBuilder.group({
-                firstName: ["", [Validators.required, Validators.minLength(3)]],
-                lastName: ["", [Validators.required, Validators.minLength(3)]],
-            }),
-            contactDetails: this.formBuilder.group({
-                email: ["", [Validators.required, Validators.email]],
-                phone: [""],
-            }),
-            confirm: this.formBuilder.group({
-                confirmed: [false, Validators.requiredTrue],
-            }),
-        });
     }
 }

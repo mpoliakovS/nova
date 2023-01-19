@@ -18,15 +18,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
     selector: "nui-checkbox-group-test-example",
     templateUrl: "checkbox-group-test.component.html",
 })
-export class CheckboxGroupTestComponent implements OnInit {
-    public testForm: UntypedFormGroup;
+export class CheckboxGroupTestComponent {
     public cabbage = "Cabbage";
     public potato = "Potato";
     public tomato = "Tomato";
@@ -35,21 +34,18 @@ export class CheckboxGroupTestComponent implements OnInit {
     public vegetables = [this.cabbage, this.potato, this.tomato, this.carrot];
     public hints = [this.cabbage, this.tomato];
     public selectedVegetables = [this.potato, this.tomato, this.disabledOne];
+    public testForm = this.formBuilder.group({
+        checkboxGroup: this.formBuilder.control({
+            value: this.selectedVegetables,
+            disabled: true,
+        }),
+        checkboxGroup2: this.formBuilder.control({
+            value: this.selectedVegetables,
+            disabled: false,
+        }),
+    });
 
-    constructor(private formBuilder: UntypedFormBuilder) {}
-
-    public ngOnInit(): void {
-        this.testForm = this.formBuilder.group({
-            checkboxGroup: this.formBuilder.control({
-                value: this.selectedVegetables,
-                disabled: true,
-            }),
-            checkboxGroup2: this.formBuilder.control({
-                value: this.selectedVegetables,
-                disabled: false,
-            }),
-        });
-    }
+    constructor(private formBuilder: FormBuilder) {}
 
     public isChecked(vegetable: string): boolean {
         return this.selectedVegetables.indexOf(vegetable) > -1;

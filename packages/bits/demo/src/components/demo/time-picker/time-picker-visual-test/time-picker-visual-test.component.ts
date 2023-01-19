@@ -20,8 +20,9 @@
 
 import { Component, OnInit } from "@angular/core";
 import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
+    FormBuilder,
+    FormControl,
+    FormGroup,
     Validators,
 } from "@angular/forms";
 import moment, { Moment } from "moment/moment";
@@ -33,9 +34,11 @@ import moment, { Moment } from "moment/moment";
 export class TimePickerVisualTestComponent implements OnInit {
     public time: Moment;
     public myTime: Moment;
-    public myForm: UntypedFormGroup;
+    public myForm: FormGroup<{
+        timePickerFormControl: FormControl<Moment | null>;
+    }>;
 
-    constructor(private formBuilder: UntypedFormBuilder) {
+    constructor(private formBuilder: FormBuilder) {
         this.myTime = moment("2018-12-14T12:00:00+02:00");
     }
 

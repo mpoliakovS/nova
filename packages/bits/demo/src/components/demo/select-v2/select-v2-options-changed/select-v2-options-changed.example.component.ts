@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 @Component({
     selector: "nui-select-v2-options-changed-example",
@@ -28,6 +28,7 @@ import { UntypedFormControl } from "@angular/forms";
 })
 export class SelectV2OptionsChangedExampleComponent implements OnInit {
     public items: string[] = [];
+    public selectControl = new FormControl<string | null>(null);
     private itemSet = [
         [
             $localize`Item 1`,
@@ -42,7 +43,6 @@ export class SelectV2OptionsChangedExampleComponent implements OnInit {
             $localize`Item 6`,
         ],
     ];
-    public selectControl = new UntypedFormControl();
 
     public ngOnInit(): void {
         this.items = this.itemSet[0];

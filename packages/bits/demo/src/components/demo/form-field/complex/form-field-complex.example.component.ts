@@ -18,43 +18,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { ChangeDetectorRef, Component } from "@angular/core";
+import { AbstractControl, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "nui-form-field-complex-example",
     templateUrl: "./form-field-complex.example.component.html",
 })
-export class FormFieldComplexExampleComponent implements OnInit {
-    public fancyForm: UntypedFormGroup;
+export class FormFieldComplexExampleComponent {
+    static matchPassword(group: AbstractControl) {
+        const password = group.get("password");
+        const confirm = group.get("confirmPassword");
+        if (!password || !confirm) {
+            return null;
+        }
 
-    constructor(
-        private formBuilder: UntypedFormBuilder,
-        private changeDetector: ChangeDetectorRef
-    ) {}
-
-    public ngOnInit(): void {
-        this.fancyForm = this.formBuilder.group(
-            {
-                password: this.formBuilder.control("", Validators.required),
-                confirmPassword: this.formBuilder.control(
-                    "",
-                    Validators.required
-                ),
-            },
-            {
-                validator: this.matchPassword.bind(this.formBuilder.group),
-            }
-        );
-    }
-
-    private matchPassword(group: UntypedFormGroup) {
-        const password = group.controls.password;
-        const confirm = group.controls.confirmPassword;
         if (password.pristine || confirm.pristine) {
             return null;
         }
@@ -69,4 +47,19 @@ export class FormFieldComplexExampleComponent implements OnInit {
             isValid: false,
         };
     }
+
+    public fancyForm = this.formBuilder.group(
+        {
+            password: this.formBuilder.control("", Validators.required),
+            confirmPassword: this.formBuilder.control("", Validators.required),
+        },
+        {
+            validators: [FormFieldComplexExampleComponent.matchPassword],
+        }
+    );
+
+    constructor(
+        private formBuilder: FormBuilder,
+        private changeDetector: ChangeDetectorRef
+    ) {}
 }

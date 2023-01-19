@@ -18,8 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder } from "@angular/forms";
 import moment, { Moment } from "moment/moment";
 
 import { IDatePickerDisabledDate } from "@nova-ui/bits";
@@ -28,7 +28,7 @@ import { IDatePickerDisabledDate } from "@nova-ui/bits";
     selector: "nui-date-picker-test",
     templateUrl: "./date-picker-test.component.html",
 })
-export class DatePickerTestComponent implements OnInit {
+export class DatePickerTestComponent {
     public dt: Moment;
     public dtPreserve: Moment;
     public minDate: Moment;
@@ -42,11 +42,13 @@ export class DatePickerTestComponent implements OnInit {
     public month: number;
     public year: number;
     public caption: string;
-    public reactiveDatepickerForm: UntypedFormGroup;
+    public reactiveDatepickerForm = this.formBuilder.group({
+        datePicker: this.formBuilder.control(moment()),
+    });
     public dateDisabled: IDatePickerDisabledDate[];
     public todayDateDisabled: IDatePickerDisabledDate[];
 
-    constructor(private formBuilder: UntypedFormBuilder) {
+    constructor(private formBuilder: FormBuilder) {
         this.dt = moment();
         this.dtPreserve = moment();
         this.localActiveDate = this.dt;
@@ -112,12 +114,6 @@ export class DatePickerTestComponent implements OnInit {
                 mode: "day",
             },
         ];
-    }
-
-    public ngOnInit(): void {
-        this.reactiveDatepickerForm = this.formBuilder.group({
-            datePicker: this.formBuilder.control(moment()),
-        });
     }
 
     public dateChanged(event: any): void {

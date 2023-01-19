@@ -18,18 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import {
-    Component,
-    Inject,
-    OnInit,
-    TemplateRef,
-    ViewChild,
-} from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { Component, Inject, TemplateRef, ViewChild } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import {
     DialogService,
@@ -44,11 +34,15 @@ import {
     selector: "nui-wizard-visual",
     templateUrl: "./wizard-visual-test.component.html",
 })
-export class WizardVisualTestComponent implements OnInit {
+export class WizardVisualTestComponent {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
     @ViewChild("dialogWizardBusy") dialogWizardBusy: WizardComponent;
 
-    public myForm: UntypedFormGroup;
+    public myForm = this.formBuilder.group({
+        name: ["", Validators.required],
+        email: ["", [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
+        password: ["", [Validators.required, Validators.minLength(8)]],
+    });
     public hint = "example-hint";
     public caption = "example-caption";
     public secondStepBusyConfig: IBusyConfig = {
@@ -64,20 +58,9 @@ export class WizardVisualTestComponent implements OnInit {
     private activeDialog: NuiDialogRef;
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(DialogService) private dialogService: DialogService
     ) {}
-
-    public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            name: ["", Validators.required],
-            email: [
-                "",
-                [Validators.required, Validators.pattern("[^ @]*@[^ @]*")],
-            ],
-            password: ["", [Validators.required, Validators.minLength(8)]],
-        });
-    }
 
     public onOptionChange(value: string): void {
         this.hint = value;

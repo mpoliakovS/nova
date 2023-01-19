@@ -20,8 +20,9 @@
 
 import { Component, Inject, OnInit } from "@angular/core";
 import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
+    FormBuilder,
+    FormControl,
+    FormGroup,
     Validators,
 } from "@angular/forms";
 import { Moment } from "moment/moment";
@@ -34,10 +35,12 @@ import { ToastService } from "@nova-ui/bits";
 })
 export class TimePickerReactiveFormExampleComponent implements OnInit {
     public time: Moment;
-    public myForm: UntypedFormGroup;
+    public myForm: FormGroup<{
+        timePickerFormControl: FormControl<Moment | null>;
+    }>;
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
 

@@ -18,12 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { Component, ViewEncapsulation } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "nui-popup-with-custom-content-example",
@@ -31,8 +27,7 @@ import {
     styleUrls: ["./popup-with-custom-content.example.component.less"],
     encapsulation: ViewEncapsulation.None,
 })
-export class PopupWithCustomContentComponent implements OnInit {
-    public demoFormGroup: UntypedFormGroup;
+export class PopupWithCustomContentComponent {
     public icon = "caret-down";
     public width = "200px";
     public itemsSource: string[] = [
@@ -41,17 +36,14 @@ export class PopupWithCustomContentComponent implements OnInit {
         $localize`Item 3`,
         $localize`Item 4`,
     ];
+    public demoFormGroup = this.formBuilder.group({
+        checkboxGroup: this.formBuilder.control(
+            [this.itemsSource[0], this.itemsSource[1], this.itemsSource[2]],
+            [Validators.required, Validators.minLength(3)]
+        ),
+    });
 
-    constructor(private formBuilder: UntypedFormBuilder) {}
-
-    public ngOnInit(): void {
-        this.demoFormGroup = this.formBuilder.group({
-            checkboxGroup: this.formBuilder.control(
-                [this.itemsSource[0], this.itemsSource[1], this.itemsSource[2]],
-                [Validators.required, Validators.minLength(3)]
-            ),
-        });
-    }
+    constructor(private formBuilder: FormBuilder) {}
 
     public handleClick(event: MouseEvent): void {
         event.stopPropagation();

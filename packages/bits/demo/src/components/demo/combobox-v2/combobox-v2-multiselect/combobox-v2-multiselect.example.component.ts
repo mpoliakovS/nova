@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, OnDestroy } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import { Subject } from "rxjs";
 
 @Component({
@@ -32,7 +32,7 @@ export class ComboboxV2MultiselectExampleComponent implements OnDestroy {
     public items = Array.from({ length: 100 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public comboboxControl = new UntypedFormControl();
+    public comboboxControl = new FormControl<string[] | null>(null);
     public placeholder: string = $localize`Select Item`;
 
     private readonly destroy$ = new Subject<void>();

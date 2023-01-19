@@ -18,12 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit, ViewChild } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { Component, ViewChild } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import { IWizardSelectionEvent, WizardComponent } from "@nova-ui/bits";
 
@@ -31,30 +27,25 @@ import { IWizardSelectionEvent, WizardComponent } from "@nova-ui/bits";
     selector: "nui-wizard-reset-step-example",
     templateUrl: "./wizard-reset-step.example.component.html",
 })
-export class WizardResetStepExampleComponent implements OnInit {
+export class WizardResetStepExampleComponent {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
-    public myForm: UntypedFormGroup;
-    public secondStepForm: UntypedFormGroup;
-
-    constructor(private formBuilder: UntypedFormBuilder) {}
-
-    public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            name: ["", Validators.required],
-            email: [
-                "",
-                [
-                    Validators.required,
-                    Validators.pattern("[^ @]*@[^ @]*"),
-                    Validators.email,
-                ],
+    public myForm = this.formBuilder.group({
+        name: ["", Validators.required],
+        email: [
+            "",
+            [
+                Validators.required,
+                Validators.pattern("[^ @]*@[^ @]*"),
+                Validators.email,
             ],
-            password: ["", [Validators.required]],
-        });
-        this.secondStepForm = this.formBuilder.group({
-            formCheckbox: [false, [Validators.requiredTrue]],
-        });
-    }
+        ],
+        password: ["", [Validators.required]],
+    });
+    public secondStepForm = this.formBuilder.group({
+        formCheckbox: [false, [Validators.requiredTrue]],
+    });
+
+    constructor(private formBuilder: FormBuilder) {}
 
     public updateValidity(): void {
         this.secondStepForm.get("formCheckbox")?.updateValueAndValidity();

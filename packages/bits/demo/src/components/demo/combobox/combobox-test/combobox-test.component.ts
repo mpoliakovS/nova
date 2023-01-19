@@ -19,11 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, Inject, OnInit } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import _cloneDeep from "lodash/cloneDeep";
 
 import { ISelectChangedEvent, ISelectGroup, ToastService } from "@nova-ui/bits";
@@ -33,7 +29,6 @@ import { ISelectChangedEvent, ISelectGroup, ToastService } from "@nova-ui/bits";
     templateUrl: "./combobox-test.component.html",
 })
 export class ComboboxTestComponent implements OnInit {
-    public myForm: UntypedFormGroup;
     public dataset = [
         "Item 1",
         "Item 2",
@@ -62,6 +57,11 @@ export class ComboboxTestComponent implements OnInit {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "Item 2",
     };
+    public myForm = this.formBuilder.group({
+        item: this.formBuilder.control(this.reactiveFormDataset.selectedItem, [
+            Validators.required,
+        ]),
+    });
     public requiredDataset = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "",
@@ -155,19 +155,12 @@ export class ComboboxTestComponent implements OnInit {
     public separatorsDisplayedItems = this.separatorsDataset.itemsInGroups;
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
 
     public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            item: this.formBuilder.control(
-                this.reactiveFormDataset.selectedItem,
-                [Validators.required]
-            ),
-        });
-
-        this.myForm.controls["item"].valueChanges.subscribe((value) =>
+        this.myForm.controls.item.valueChanges.subscribe((value) =>
             console.log(value)
         );
         this.isInErrorState();

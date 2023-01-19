@@ -18,18 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import {
-    Component,
-    Inject,
-    OnInit,
-    TemplateRef,
-    ViewChild,
-} from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { Component, Inject, TemplateRef, ViewChild } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import {
     DialogService,
@@ -45,13 +35,17 @@ import {
     selector: "nui-wizard-simple-example",
     templateUrl: "./wizard-simple.example.component.html",
 })
-export class WizardSimpleExampleComponent implements OnInit {
+export class WizardSimpleExampleComponent {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
     @ViewChild("wizardStep2") wizardStep2Component: WizardStepComponent;
     @ViewChild("wizardStep3") wizardStep3Component: WizardStepComponent;
     @ViewChild("dynamicStep") dynamicStep: WizardStepComponent;
 
-    public myForm: UntypedFormGroup;
+    public myForm = this.formBuilder.group({
+        name: ["", Validators.required],
+        email: ["", [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
+        password: ["", [Validators.required, Validators.minLength(8)]],
+    });
     public hint = $localize`example-hint`;
     public caption = $localize`example-caption`;
     public vegetables = [
@@ -74,21 +68,10 @@ export class WizardSimpleExampleComponent implements OnInit {
     private activeDialog: NuiDialogRef;
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService,
         @Inject(DialogService) private dialogService: DialogService
     ) {}
-
-    public ngOnInit(): void {
-        this.myForm = this.formBuilder.group({
-            name: ["", Validators.required],
-            email: [
-                "",
-                [Validators.required, Validators.pattern("[^ @]*@[^ @]*")],
-            ],
-            password: ["", [Validators.required, Validators.minLength(8)]],
-        });
-    }
 
     public onOptionChange(value: string): void {
         this.hint = value;
@@ -176,6 +159,7 @@ export class WizardSimpleExampleComponent implements OnInit {
     public select(event: IWizardSelectionEvent): void {
         this.selectedIndex = event.selectedIndex;
     }
+
     public onButtonClick(title: string): void {
         title === "Leave" ? this.actionDone() : this.actionCanceled();
         this.activeDialog.close();

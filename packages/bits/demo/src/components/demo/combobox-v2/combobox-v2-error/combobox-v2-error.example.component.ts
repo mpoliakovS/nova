@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 @Component({
     selector: "nui-combobox-v2-error-example",
@@ -30,6 +30,7 @@ export class ComboboxV2ErrorExampleComponent {
     public items = Array.from({ length: 100 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public comboboxControl = new UntypedFormControl();
+    public comboboxControl = new FormControl<string | null>(null);
+
     public error: boolean = true;
 }

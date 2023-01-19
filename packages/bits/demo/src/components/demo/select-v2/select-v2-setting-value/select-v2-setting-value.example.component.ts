@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component, OnInit } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 @Component({
     selector: "nui-select-v2-setting-value-example",
@@ -30,7 +30,7 @@ export class SelectV2SettingValueExampleComponent implements OnInit {
     public items = Array.from({ length: 50 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public selectControl: UntypedFormControl = new UntypedFormControl();
+    public selectControl = new FormControl<string | null>(null);
 
     public ngOnInit(): void {
         this.selectControl.setValue(this.items[1]);

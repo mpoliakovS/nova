@@ -23,15 +23,11 @@ import {
     AfterViewInit,
     ChangeDetectionStrategy,
     Component,
-    OnInit,
     ViewChild,
     ViewEncapsulation,
 } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+// eslint-disable-next-line import/no-deprecated
 import { tap } from "rxjs/operators";
 
 import { WizardDirective, WizardStepV2Component } from "@nova-ui/bits";
@@ -64,31 +60,27 @@ export class WizardCustomComponent extends WizardDirective {}
         },
     ],
 })
-export class WizardCustomExampleComponent implements OnInit, AfterViewInit {
-    public formGroup: UntypedFormGroup;
+export class WizardCustomExampleComponent implements AfterViewInit {
+    public formGroup = this.formBuilder.group({
+        personDetails: this.formBuilder.group({
+            name: ["", [Validators.required, Validators.minLength(3)]],
+            symptoms: [undefined, Validators.required],
+        }),
+        diseaseDetails: this.formBuilder.group({
+            date: ["", Validators.required],
+        }),
+        contactDetails: this.formBuilder.group({
+            email: ["", [Validators.required, Validators.email]],
+            phone: [""],
+        }),
+    });
     public steps: number = 1;
     public selectedIndex: number = 0;
     public progress: number;
 
     @ViewChild("wizard") wizard: WizardCustomComponent;
 
-    constructor(private formBuilder: UntypedFormBuilder) {}
-
-    public ngOnInit(): void {
-        this.formGroup = new UntypedFormGroup({
-            personDetails: this.formBuilder.group({
-                name: ["", [Validators.required, Validators.minLength(3)]],
-                symptoms: [undefined, Validators.required],
-            }),
-            diseaseDetails: this.formBuilder.group({
-                date: ["", Validators.required],
-            }),
-            contactDetails: this.formBuilder.group({
-                email: ["", [Validators.required, Validators.email]],
-                phone: [""],
-            }),
-        });
-    }
+    constructor(private formBuilder: FormBuilder) {}
 
     public ngAfterViewInit(): void {
         const update = (selectedIndex?: number, steps?: number) => {
@@ -123,11 +115,11 @@ export class WizardCustomExampleComponent implements OnInit, AfterViewInit {
     validate(step: WizardStepV2Component): void {
         // mark all fields from current step as touched
         // in order to display the validation messages
-        Object.keys(
-            (step.stepControl as UntypedFormGroup)?.controls || {}
-        ).forEach((key) => {
-            const field = this.wizard.selected.stepControl.get(key);
-            field?.markAsTouched();
-        });
+        Object.keys((step.stepControl as FormGroup)?.controls || {}).forEach(
+            (key) => {
+                const field = this.wizard.selected.stepControl.get(key);
+                field?.markAsTouched();
+            }
+        );
     }
 }

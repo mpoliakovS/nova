@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
     selector: "nui-textbox-number-test",
@@ -28,11 +28,9 @@ import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 export class TextboxNumberTestComponent {
     public value = 10;
 
-    public reactiveForm: UntypedFormGroup;
+    public reactiveForm = this.formBuilder.group({
+        number: [1],
+    });
 
-    constructor(public formBuilder: UntypedFormBuilder) {
-        this.reactiveForm = formBuilder.group({
-            number: [1],
-        });
-    }
+    constructor(public formBuilder: FormBuilder) {}
 }

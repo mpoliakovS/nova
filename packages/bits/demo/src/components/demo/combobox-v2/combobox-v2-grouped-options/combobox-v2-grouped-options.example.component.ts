@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 import { ISelectGroup } from "@nova-ui/bits";
 
@@ -39,7 +39,7 @@ export class ComboboxV2GroupedOptionsExampleComponent {
             name: $localize`Item ${n + 1}`,
         })),
     }));
-    public comboboxControl = new UntypedFormControl();
+    public comboboxControl = new FormControl<string | null>(null);
 
     public displayFn(item: any): string {
         return item?.name || "";

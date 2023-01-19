@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { AfterViewInit, Component, OnDestroy, ViewChild } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import { Subject } from "rxjs";
 
 import { ComboboxV2Component } from "@nova-ui/bits";
@@ -28,6 +28,7 @@ interface IExampleItem {
     id: string;
     name: string;
 }
+
 @Component({
     selector: "nui-combobox-v2-custom-control-example",
     templateUrl: "combobox-v2-custom-control.example.component.html",
@@ -40,7 +41,7 @@ export class ComboboxV2CustomControlExampleComponent
     public items = Array.from({ length: 100 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public comboboxControl = new UntypedFormControl();
+    public comboboxControl = new FormControl<string | null>(null);
     public placeholder: string = $localize`Select Item`;
     public handleClicksOutside: boolean = false;
 

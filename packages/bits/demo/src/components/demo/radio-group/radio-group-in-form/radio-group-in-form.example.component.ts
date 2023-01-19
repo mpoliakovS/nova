@@ -18,32 +18,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, OnInit } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "nui-radio-group-in-form-example",
     templateUrl: "./radio-group-in-form.example.component.html",
 })
-export class RadioGroupInFormExampleComponent implements OnInit {
-    public fancyForm: UntypedFormGroup;
-
+export class RadioGroupInFormExampleComponent {
     public vegetables = [
         $localize`Cabbage`,
         $localize`Potato`,
         $localize`Tomato`,
         $localize`Carrot`,
     ];
-    constructor(private formBuilder: UntypedFormBuilder) {}
-    public ngOnInit(): void {
-        this.fancyForm = this.formBuilder.group({
-            radioGroup: this.formBuilder.control(this.vegetables[1], [
-                Validators.required,
-            ]),
-        });
-    }
+    public fancyForm = this.formBuilder.group({
+        radioGroup: this.formBuilder.control(this.vegetables[1], [
+            Validators.required,
+        ]),
+    });
+
+    constructor(private formBuilder: FormBuilder) {}
 }

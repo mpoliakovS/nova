@@ -19,13 +19,14 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { UntypedFormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import { Subject } from "rxjs";
 
 interface IExampleItem {
     id: string;
     name: string;
 }
+
 @Component({
     selector: "nui-combobox-v2-custom-typeahead-example",
     templateUrl: "combobox-v2-custom-typeahead.example.component.html",
@@ -37,7 +38,7 @@ export class ComboboxV2CustomTypeaheadExampleComponent {
         name: $localize`Item ${i}`,
     }));
 
-    public comboboxControl = new UntypedFormControl();
+    public comboboxControl = new FormControl<string | null>(null);
 
     // Use this in the template with async pipe to dynamically render the filtered items
     public filteredItems$: Subject<any[]> = new Subject<any[]>();

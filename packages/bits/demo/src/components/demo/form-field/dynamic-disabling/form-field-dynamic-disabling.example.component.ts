@@ -18,12 +18,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, Inject, OnInit } from "@angular/core";
-import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
-    Validators,
-} from "@angular/forms";
+import { Component, Inject } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 import { ToastService } from "@nova-ui/bits";
 
@@ -31,24 +27,20 @@ import { ToastService } from "@nova-ui/bits";
     selector: "nui-form-field-dynamic-disabling-example",
     templateUrl: "./form-field-dynamic-disabling.example.component.html",
 })
-export class FormFieldDynamicDisablingExampleComponent implements OnInit {
-    public dynamicForm: UntypedFormGroup;
+export class FormFieldDynamicDisablingExampleComponent {
+    public dynamicForm = this.formBuilder.group({
+        password: this.formBuilder.control("", Validators.required),
+        confirmPassword: this.formBuilder.control(
+            { value: "", disabled: true },
+            Validators.required
+        ),
+    });
     public visibleRadio: boolean;
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService
     ) {}
-
-    public ngOnInit(): void {
-        this.dynamicForm = this.formBuilder.group({
-            password: this.formBuilder.control("", Validators.required),
-            confirmPassword: this.formBuilder.control(
-                { value: "", disabled: true },
-                Validators.required
-            ),
-        });
-    }
 
     public onPasswordBlurred(): void {
         if (this.dynamicForm.controls.password.valid) {
