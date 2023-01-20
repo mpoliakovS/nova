@@ -23,7 +23,6 @@ import {
     FormBuilder,
     FormControl,
     FormGroup,
-    UntypedFormGroup,
     Validators,
 } from "@angular/forms";
 
@@ -73,7 +72,7 @@ export class NestedFormsAsComponentExampleComponent implements OnInit {
         this.fancyForm.setControl(name, form);
     }
 
-    public onSubmit(value: UntypedFormGroup): void {
+    public onSubmit(value: NestedFormGroup): void {
         this.toastService.success({
             message: `Form is valid: ${value.valid}`,
             title: "Submit",
