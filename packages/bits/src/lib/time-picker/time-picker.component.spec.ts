@@ -21,7 +21,7 @@
 import { DebugElement, NO_ERRORS_SCHEMA } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import {
-    UntypedFormBuilder,
+    FormBuilder,
     FormsModule,
     ReactiveFormsModule,
 } from "@angular/forms";
@@ -99,7 +99,7 @@ describe("components >", () => {
                     UtilService,
                     EdgeDetectionService,
                     DomUtilService,
-                    UntypedFormBuilder,
+                    FormBuilder,
                     LoggerService,
                     IconService,
                     TimePickerKeyboardService,

@@ -20,7 +20,7 @@
 
 import { CdkStep, CdkStepper } from "@angular/cdk/stepper";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { UntypedFormControl, NgForm } from "@angular/forms";
+import { FormControl, NgForm } from "@angular/forms";
 
 import { WizardStepHeaderComponent } from "../wizard-step-header/wizard-step-header.component";
 import { WizardDirective } from "../wizard.directive";
@@ -58,7 +58,7 @@ describe("components >", () => {
         });
 
         describe("isErrorState", () => {
-            const control = { invalid: false } as UntypedFormControl;
+            const control = { invalid: false } as FormControl;
             const form = {} as NgForm;
 
             it("should call _errorStateMatcher 'isErrorState' method", () => {
@@ -82,7 +82,7 @@ describe("components >", () => {
 
                 expect(
                     component.isErrorState(
-                        { invalid: true } as UntypedFormControl,
+                        { invalid: true } as FormControl,
                         form
                     )
                 ).toBeTrue();

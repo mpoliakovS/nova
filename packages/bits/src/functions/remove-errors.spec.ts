@@ -20,17 +20,17 @@
 
 import {
     AbstractControl,
-    UntypedFormBuilder,
-    UntypedFormGroup,
+    FormBuilder,
+    FormGroup,
 } from "@angular/forms";
 
 import { removeErrors } from "./remove-errors";
 
 describe("removeErrors > ", () => {
-    let form: UntypedFormGroup;
+    let form: FormGroup;
 
     beforeEach(() => {
-        form = new UntypedFormBuilder().group({
+        form = new FormBuilder().group({
             testControl: "",
         });
     });

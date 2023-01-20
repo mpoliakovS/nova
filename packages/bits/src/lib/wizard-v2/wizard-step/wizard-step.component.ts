@@ -39,7 +39,7 @@ import {
     TemplateRef,
     ViewEncapsulation,
 } from "@angular/core";
-import { UntypedFormControl, FormGroupDirective, NgForm } from "@angular/forms";
+import { FormControl, FormGroupDirective, NgForm } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -109,7 +109,7 @@ export class WizardStepV2Component
 
     /** Custom error state matcher that additionally checks for validity of interacted form. */
     public isErrorState(
-        control?: UntypedFormControl,
+        control?: FormControl,
         form?: FormGroupDirective | NgForm
     ): boolean {
         const originalErrorState = this._errorStateMatcher.isErrorState(

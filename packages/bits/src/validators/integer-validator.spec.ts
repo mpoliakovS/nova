@@ -20,7 +20,7 @@
 
 import { TestBed } from "@angular/core/testing";
 import {
-    UntypedFormBuilder,
+    FormBuilder,
     ReactiveFormsModule,
     ValidatorFn,
 } from "@angular/forms";
@@ -29,7 +29,7 @@ import { NuiValidators } from "./nui-validators";
 
 describe("validators >", () => {
     describe("integerValidator >", () => {
-        let formBuilder: UntypedFormBuilder;
+        let formBuilder: FormBuilder;
         const commonTestCases = [
             { num: "0", result: true },
             { num: "108", result: true },
@@ -42,7 +42,7 @@ describe("validators >", () => {
             TestBed.configureTestingModule({
                 imports: [ReactiveFormsModule],
             });
-            formBuilder = TestBed.inject(UntypedFormBuilder);
+            formBuilder = TestBed.inject(FormBuilder);
         });
 
         const executeTestCases = (

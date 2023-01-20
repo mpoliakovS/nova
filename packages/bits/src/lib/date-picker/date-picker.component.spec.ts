@@ -26,7 +26,7 @@ import {
     tick,
 } from "@angular/core/testing";
 import {
-    UntypedFormBuilder,
+    FormBuilder,
     FormsModule,
     ReactiveFormsModule,
 } from "@angular/forms";
@@ -91,7 +91,7 @@ describe("components >", () => {
                     UtilService,
                     EdgeDetectionService,
                     DomUtilService,
-                    UntypedFormBuilder,
+                    FormBuilder,
                     LoggerService,
                     IconService,
                 ],

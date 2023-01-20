@@ -25,7 +25,7 @@ import {
     flush,
     TestBed,
 } from "@angular/core/testing";
-import { UntypedFormBuilder, FormsModule } from "@angular/forms";
+import { FormBuilder, FormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 
 import { LoggerService } from "../../../services/log-service";
@@ -67,7 +67,7 @@ describe("components >", () => {
                     ButtonComponent,
                     TooltipDirective,
                 ],
-                providers: [UntypedFormBuilder, LoggerService, IconService],
+                providers: [FormBuilder, LoggerService, IconService],
             });
             fixture = TestBed.createComponent(TextboxNumberComponent);
             fixture.detectChanges();

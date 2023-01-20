@@ -20,8 +20,8 @@
 
 import { Component, Inject, OnInit } from "@angular/core";
 import {
-    UntypedFormBuilder,
-    UntypedFormGroup,
+    FormBuilder,
+    FormGroup,
     Validators,
 } from "@angular/forms";
 
@@ -48,14 +48,14 @@ import { ISelectChangedEvent } from "../public-api";
     `,
 })
 export class SelectReactiveFormTestComponent implements OnInit {
-    public myForm: UntypedFormGroup;
+    public myForm: FormGroup;
     public dataset = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "",
     };
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(ToastService) public toastService: ToastService
     ) {}
 
@@ -98,14 +98,14 @@ export class SelectReactiveFormTestComponent implements OnInit {
     `,
 })
 export class ComboboxReactiveFormTestComponent implements OnInit {
-    public myForm: UntypedFormGroup;
+    public myForm: FormGroup;
     public dataset = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "",
     };
 
     constructor(
-        private formBuilder: UntypedFormBuilder,
+        private formBuilder: FormBuilder,
         @Inject(ToastService) public toastService: ToastService
     ) {}
 

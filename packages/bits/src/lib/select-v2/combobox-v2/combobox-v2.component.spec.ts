@@ -35,7 +35,7 @@ import {
     waitForAsync,
 } from "@angular/core/testing";
 import {
-    UntypedFormControl,
+    FormControl,
     FormsModule,
     ReactiveFormsModule,
 } from "@angular/forms";
@@ -75,7 +75,7 @@ const nonExistentItem = { id: "item-101", name: "Item 101" };
 })
 class ComboboxV2WrapperComponent {
     public items = Array.from({ length: 10 }).map((_, i) => `Item ${i}`);
-    public comboboxControl = new UntypedFormControl();
+    public comboboxControl = new FormControl();
     @ViewChild(ComboboxV2Component) combobox: ComboboxV2Component;
     constructor(public elRef: ElementRef<HTMLElement>) {}
 }

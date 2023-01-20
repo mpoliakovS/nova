@@ -22,7 +22,7 @@ import { CommonModule } from "@angular/common";
 import { Component, NO_ERRORS_SCHEMA, ViewChild } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import {
-    UntypedFormBuilder,
+    FormBuilder,
     FormsModule,
     ReactiveFormsModule,
 } from "@angular/forms";
@@ -47,7 +47,7 @@ class TextboxFormComponent {
         input: this.fb.control(""),
     });
 
-    constructor(private fb: UntypedFormBuilder) {}
+    constructor(private fb: FormBuilder) {}
 }
 
 describe("components >", () => {

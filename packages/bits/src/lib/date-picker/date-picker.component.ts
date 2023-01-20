@@ -38,7 +38,7 @@ import {
 } from "@angular/core";
 import {
     ControlValueAccessor,
-    UntypedFormControl,
+    FormControl,
     NG_VALIDATORS,
     NG_VALUE_ACCESSOR,
     ValidationErrors,
@@ -202,7 +202,7 @@ export class DatePickerComponent
     protected _value: Moment;
     protected _todayDate: Moment = moment();
 
-    private formControl: UntypedFormControl;
+    private formControl: FormControl;
     private inputChanged: Subject<string> = new Subject<string>();
     private momentDateFormat: string;
     private calendarChanged: Subscription;
@@ -310,7 +310,7 @@ export class DatePickerComponent
 
     public onTouched(): void {}
 
-    public validate(control: UntypedFormControl): ValidationErrors | null {
+    public validate(control: FormControl): ValidationErrors | null {
         this.formControl = control;
         return NuiValidators.dateFormat(control.value);
     }

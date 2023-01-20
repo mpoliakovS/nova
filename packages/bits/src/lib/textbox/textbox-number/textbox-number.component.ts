@@ -32,7 +32,7 @@ import {
 } from "@angular/core";
 import {
     ControlValueAccessor,
-    UntypedFormControl,
+    FormControl,
     NG_VALIDATORS,
     NG_VALUE_ACCESSOR,
     ValidationErrors,
@@ -83,8 +83,8 @@ export class TextboxNumberComponent
     private static createRangeValidator(
         min: number,
         max: number
-    ): (c: UntypedFormControl) => ValidationErrors | null {
-        const rangeValidator = (c: UntypedFormControl) => {
+    ): (c: FormControl) => ValidationErrors | null {
+        const rangeValidator = (c: FormControl) => {
             if (!c.value && c.value !== 0) {
                 return null;
             }
@@ -174,11 +174,11 @@ export class TextboxNumberComponent
     @ViewChild("numberInput", { static: true })
     private input: ElementRef<HTMLFieldSetElement>;
 
-    public formControl: UntypedFormControl;
+    public formControl: FormControl;
 
     public isRepeatable = true;
 
-    private validatorFn: (c: UntypedFormControl) => ValidationErrors | null;
+    private validatorFn: (c: FormControl) => ValidationErrors | null;
 
     public ngOnChanges(changes: SimpleChanges): void {
         if (changes["minValue"] || changes["maxValue"]) {
@@ -243,7 +243,7 @@ export class TextboxNumberComponent
         return this.value >= this.maxValue;
     }
 
-    public validate(c: UntypedFormControl): ValidationErrors | null {
+    public validate(c: FormControl): ValidationErrors | null {
         this.formControl = c;
         return (
             (this.validatorFn ? this.validatorFn(c) : null) ||
