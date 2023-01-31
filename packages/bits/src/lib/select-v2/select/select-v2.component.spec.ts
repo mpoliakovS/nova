@@ -35,11 +35,7 @@ import {
     tick,
     waitForAsync,
 } from "@angular/core/testing";
-import {
-    FormControl,
-    FormsModule,
-    ReactiveFormsModule,
-} from "@angular/forms";
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 
 import { KEYBOARD_CODE } from "../../../constants/keycode.constants";

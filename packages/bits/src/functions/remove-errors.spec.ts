@@ -18,11 +18,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import {
-    AbstractControl,
-    FormBuilder,
-    FormGroup,
-} from "@angular/forms";
+import { AbstractControl, FormBuilder, FormGroup } from "@angular/forms";
 
 import { removeErrors } from "./remove-errors";
 

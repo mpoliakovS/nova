@@ -19,11 +19,7 @@
 //  THE SOFTWARE.
 
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import {
-    FormBuilder,
-    FormsModule,
-    ReactiveFormsModule,
-} from "@angular/forms";
+import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import moment from "moment/moment";
 
 import {

@@ -20,11 +20,7 @@
 
 import { DebugElement, NO_ERRORS_SCHEMA } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import {
-    FormBuilder,
-    FormsModule,
-    ReactiveFormsModule,
-} from "@angular/forms";
+import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 import _debounce from "lodash/debounce";
 import _each from "lodash/each";

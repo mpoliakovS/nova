@@ -20,11 +20,7 @@
 
 import { Inject, OnInit } from "@angular/core";
 import { Component } from "@angular/core";
-import {
-    FormBuilder,
-    FormGroup,
-    Validators,
-} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Moment } from "moment/moment";
 
 import { ToastService } from "../../toast/toast.service";

@@ -25,11 +25,7 @@ import {
     TestBed,
     tick,
 } from "@angular/core/testing";
-import {
-    FormBuilder,
-    FormsModule,
-    ReactiveFormsModule,
-} from "@angular/forms";
+import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 import momentTz from "moment-timezone";
 import moment from "moment/moment";
