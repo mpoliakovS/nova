@@ -19,11 +19,7 @@
 //  THE SOFTWARE.
 
 import { TestBed } from "@angular/core/testing";
-import {
-    FormBuilder,
-    ReactiveFormsModule,
-    ValidatorFn,
-} from "@angular/forms";
+import { FormBuilder, ReactiveFormsModule, ValidatorFn } from "@angular/forms";
 
 import { NuiValidators } from "./nui-validators";
 
