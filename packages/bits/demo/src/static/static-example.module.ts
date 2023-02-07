@@ -112,4 +112,4 @@ const staticRoutes: Routes = [
         RouterModule.forChild(staticRoutes),
     ],
 })
-export class StaticExampleModule {}
+export default class StaticExampleModule {}

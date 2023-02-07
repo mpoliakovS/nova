@@ -61,7 +61,6 @@ import {
 } from "@angular/core";
 import _isEqual from "lodash/isEqual";
 import _keys from "lodash/keys";
-import _some from "lodash/some";
 import { Subscription } from "rxjs";
 
 import { IFilteringParticipants, ISelection } from "../../services/public-api";
@@ -70,10 +69,6 @@ import { ISortedItem, SorterDirection } from "../sorter/public-api";
 import { TableStateHandlerService } from "./table-state-handler.service";
 
 // <example-url>./../examples/index.html#/table</example-url>
-
-interface TableRowData {
-    [key: string]: any;
-}
 
 /** @dynamic */
 @Component({

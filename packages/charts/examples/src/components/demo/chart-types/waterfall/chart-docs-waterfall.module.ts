@@ -94,4 +94,4 @@ const collectionRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsWaterfallModule {}
+export default class  ChartDocsWaterfallModule {}

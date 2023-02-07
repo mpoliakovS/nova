@@ -98,4 +98,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class SearchModule {}
+export default class SearchModule {}

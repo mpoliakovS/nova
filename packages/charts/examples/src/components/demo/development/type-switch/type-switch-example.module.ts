@@ -52,4 +52,4 @@ const routes: Routes = [
         RouterModule.forChild(routes),
     ],
 })
-export class TypeSwitchExampleModule {}
+export default class  TypeSwitchExampleModule {}

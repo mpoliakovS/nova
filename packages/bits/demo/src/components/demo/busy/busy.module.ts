@@ -96,4 +96,4 @@ const routes: Route[] = [
     ],
     exports: [RouterModule],
 })
-export class BusyModule {}
+export default class BusyModule {}

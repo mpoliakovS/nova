@@ -93,4 +93,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class MessageModule {}
+export default class MessageModule {}

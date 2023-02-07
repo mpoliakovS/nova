@@ -37,30 +37,28 @@ const appRoutes: Routes = [
     {
         path: "test",
         loadChildren: async () =>
-            import("../test/test.module").then(
-                (m) => m.DashboardTestModule
-            ) as Promise<Type<any>>,
+            import("../test/test.module") as object as Promise<Type<any>>,
     },
     {
         path: "prototypes",
         loadChildren: async () =>
-            import("../prototypes/prototypes.module").then(
-                (m) => m.DashboardPrototypesModule
-            ) as Promise<Type<any>>,
+            import("../prototypes/prototypes.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "schematics",
         loadChildren: async () =>
-            import("../schematics/schematics-docs.module").then(
-                (m) => m.SchematicsDocsModule
-            ) as Promise<Type<any>>,
+            import("../schematics/schematics-docs.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "docs",
         loadChildren: async () =>
-            import("../docs/dashboard-docs.module").then(
-                (m) => m.DashboardDocsModule
-            ) as Promise<Type<any>>,
+            import("../docs/dashboard-docs.module") as object as Promise<
+                Type<any>
+            >,
     },
 ];
 

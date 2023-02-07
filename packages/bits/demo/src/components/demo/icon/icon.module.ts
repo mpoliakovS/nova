@@ -86,4 +86,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class IconModule {}
+export default class IconModule {}

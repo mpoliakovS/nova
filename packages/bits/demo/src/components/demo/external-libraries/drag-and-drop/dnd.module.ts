@@ -76,4 +76,4 @@ const routes: Routes = [
         CdkTreeModule,
     ],
 })
-export class DndModule {}
+export default class DndModule {}

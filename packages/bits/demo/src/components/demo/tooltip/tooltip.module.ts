@@ -118,4 +118,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class TooltipDemoModule {}
+export default class TooltipDemoModule {}

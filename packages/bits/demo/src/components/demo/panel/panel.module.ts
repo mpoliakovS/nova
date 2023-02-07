@@ -160,4 +160,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class PanelModule {}
+export default class PanelModule {}

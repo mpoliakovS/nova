@@ -66,4 +66,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class DragDropDemoModule {}
+export default class DragDropDemoModule {}

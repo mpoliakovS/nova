@@ -97,4 +97,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsTimeFrameBarModule {}
+export default class  ChartDocsTimeFrameBarModule {}

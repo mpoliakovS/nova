@@ -38,60 +38,58 @@ const routes: Routes = [
     {
         path: TutorialsModuleRoute.HelloDashboards,
         loadChildren: async () =>
-            import("./hello-dashboards/hello-dashboards.module").then(
-                (m) => m.HelloDashboardsModule
-            ) as Promise<Type<any>>,
+            import(
+                "./hello-dashboards/hello-dashboards.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: TutorialsModuleRoute.DataSource,
         loadChildren: async () =>
-            import("./data-source-setup/data-source-setup.module").then(
-                (m) => m.DataSourceSetupModule
-            ) as Promise<Type<any>>,
+            import(
+                "./data-source-setup/data-source-setup.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: TutorialsModuleRoute.WidgetEditor,
         loadChildren: async () =>
-            import("./widget-editor-setup/widget-editor-setup.module").then(
-                (m) => m.WidgetEditorSetupModule
-            ) as Promise<Type<any>>,
+            import(
+                "./widget-editor-setup/widget-editor-setup.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: TutorialsModuleRoute.SubmitHandler,
         loadChildren: async () =>
             import(
                 "./persistence-handler-setup/persistence-handler-setup.module"
-            ).then((m) => m.PersistenceHandlerSetupModule) as Promise<
-                Type<any>
-            >,
+            ) as object as Promise<Type<any>>,
     },
     {
         path: TutorialsModuleRoute.WidgetCreation,
         loadChildren: async () =>
-            import("./widget-creation/widget-creation.module").then(
-                (m) => m.WidgetCreationModule
-            ) as Promise<Type<any>>,
+            import(
+                "./widget-creation/widget-creation.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: TutorialsModuleRoute.Customization,
         loadChildren: async () =>
-            import("./customization/customization.module").then(
-                (m) => m.CustomizationModule
-            ) as Promise<Type<any>>,
+            import("./customization/customization.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: TutorialsModuleRoute.WidgetErrorHandling,
         loadChildren: async () =>
-            import("./widget-error-handling/widget-error-handling.module").then(
-                (m) => m.WidgetErrorHandlingModule
-            ) as Promise<Type<any>>,
+            import(
+                "./widget-error-handling/widget-error-handling.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: TutorialsModuleRoute.DynamicHeaderLinks,
         loadChildren: async () =>
             import(
                 "./dynamic-header-links/dynamic-header-links-docs.module"
-            ).then((m) => m.DynamicHeaderLinksDocsModule) as Promise<Type<any>>,
+            ) as object as Promise<Type<any>>,
     },
 ];
 
@@ -99,4 +97,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     providers: [ConfiguratorHeadingService],
 })
-export class TutorialsModule {}
+export default class TutorialsModule {}

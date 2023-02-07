@@ -54,4 +54,4 @@ const routes = [
     declarations: [RuntimeI18NExampleComponent],
     exports: [RouterModule],
 })
-export class RuntimeI18NModule {}
+export default class RuntimeI18NModule {}

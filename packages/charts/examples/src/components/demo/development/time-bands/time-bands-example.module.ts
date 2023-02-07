@@ -41,4 +41,4 @@ const collectionRoutes: Routes = [
         RouterModule.forChild(collectionRoutes),
     ],
 })
-export class TimeBandsExampleModule {}
+export default class  TimeBandsExampleModule {}

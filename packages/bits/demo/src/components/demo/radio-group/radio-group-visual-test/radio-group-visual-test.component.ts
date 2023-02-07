@@ -19,7 +19,7 @@
 //  THE SOFTWARE.
 
 import { Component } from "@angular/core";
-import { FormBuilder, UntypedFormBuilder } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
     selector: "nui-radio-group-visual-test",

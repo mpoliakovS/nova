@@ -28,9 +28,9 @@ const exampleRoutes: Routes = [
     {
         path: "base-grid",
         loadChildren: async () =>
-            import("./base-grid/chart-docs-base-grid.module").then(
-                (m) => m.ChartDocsBaseGridModule
-            ) as Promise<Type<any>>,
+            import(
+                "./base-grid/chart-docs-base-grid.module"
+            ) as object as Promise<Type<any>>,
     },
 ];
 
@@ -44,4 +44,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsGridConfigModule {}
+export default class ChartDocsGridConfigModule {}

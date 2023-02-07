@@ -92,4 +92,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ToolbarModule {}
+export default class ToolbarModule {}

@@ -21,13 +21,11 @@
 import { Directionality } from "@angular/cdk/bidi";
 import { BooleanInput } from "@angular/cdk/coercion";
 import { CdkStepper } from "@angular/cdk/stepper";
-import { DOCUMENT } from "@angular/common";
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     ElementRef,
-    Inject,
     Input,
     Optional,
     ViewEncapsulation,

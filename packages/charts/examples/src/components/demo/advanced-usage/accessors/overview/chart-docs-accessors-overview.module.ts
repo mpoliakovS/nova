@@ -48,4 +48,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsAccessorsOverviewModule {}
+export default class  ChartDocsAccessorsOverviewModule {}

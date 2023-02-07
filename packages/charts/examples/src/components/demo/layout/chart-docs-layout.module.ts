@@ -47,4 +47,4 @@ const exampleRoutes: Routes = [
         RouterModule.forChild(exampleRoutes),
     ],
 })
-export class ChartDocsLayoutModule {}
+export default class  ChartDocsLayoutModule {}

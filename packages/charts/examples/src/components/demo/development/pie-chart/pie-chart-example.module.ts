@@ -51,4 +51,4 @@ const bubbleRoutes: Routes = [
         NuiExpanderModule,
     ],
 })
-export class PieChartExampleModule {}
+export default class  PieChartExampleModule {}

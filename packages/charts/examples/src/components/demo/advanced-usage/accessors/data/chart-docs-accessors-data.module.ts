@@ -57,4 +57,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsAccessorsDataModule {}
+export default class  ChartDocsAccessorsDataModule {}

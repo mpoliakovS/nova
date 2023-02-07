@@ -204,7 +204,7 @@
     "update": "ng update @angular/core@14 @angular/cli@14"
   },
   "typings": "public_api.d.ts",
-  "version": "13.0.6-0",
+  "version": "14.0.0-0",
   "packageManager": "yarn@1.22.18",
   "dependencies": {
     "global": "^4.4.0",

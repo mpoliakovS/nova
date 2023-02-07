@@ -91,4 +91,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ProgressModule {}
+export default class ProgressModule {}

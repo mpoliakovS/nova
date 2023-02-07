@@ -31,9 +31,7 @@ const routes: Routes = [
     {
         path: "kpi",
         loadChildren: async () =>
-            import("./kpi/kpi-docs.module").then(
-                (m) => m.KpiDocsModule
-            ) as Promise<Type<any>>,
+            import("./kpi/kpi-docs.module") as object as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -43,9 +41,9 @@ const routes: Routes = [
     {
         path: "timeseries",
         loadChildren: async () =>
-            import("./timeseries/timeseries-docs.module").then(
-                (m) => m.TimeseriesDocsModule
-            ) as Promise<Type<any>>,
+            import("./timeseries/timeseries-docs.module") as object as Promise<
+                Type<any>
+            >,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -55,9 +53,7 @@ const routes: Routes = [
     {
         path: "table",
         loadChildren: async () =>
-            import("./table/table-docs.module").then(
-                (m) => m.TableDocsModule
-            ) as Promise<Type<any>>,
+            import("./table/table-docs.module") as object as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -67,9 +63,9 @@ const routes: Routes = [
     {
         path: "proportional",
         loadChildren: async () =>
-            import("./proportional/proportional-docs.module").then(
-                (m) => m.ProportionalDocsModule
-            ) as Promise<Type<any>>,
+            import(
+                "./proportional/proportional-docs.module"
+            ) as object as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -79,9 +75,9 @@ const routes: Routes = [
     {
         path: "embedded",
         loadChildren: async () =>
-            import("./embedded-content/embedded-content-docs.module").then(
-                (m) => m.EmbeddedContentDocsModule
-            ) as Promise<Type<any>>,
+            import(
+                "./embedded-content/embedded-content-docs.module"
+            ) as object as Promise<Type<any>>,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -91,9 +87,9 @@ const routes: Routes = [
     {
         path: "drilldown",
         loadChildren: async () =>
-            import("./drilldown/drilldown-docs.module").then(
-                (m) => m.DrilldownDocsModule
-            ) as Promise<Type<any>>,
+            import("./drilldown/drilldown-docs.module") as object as Promise<
+                Type<any>
+            >,
         data: {
             srlc: {
                 hideIndicator: true,
@@ -110,4 +106,4 @@ const routes: Routes = [
     ],
     providers: [ConfiguratorHeadingService],
 })
-export class WidgetTypesModule {}
+export default class WidgetTypesModule {}

@@ -80,4 +80,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class SorterModule {}
+export default class SorterModule {}

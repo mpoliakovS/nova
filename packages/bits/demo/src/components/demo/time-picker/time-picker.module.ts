@@ -106,4 +106,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class TimePickerModule {}
+export default class TimePickerModule {}

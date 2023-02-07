@@ -43,4 +43,4 @@ const routes: Routes = [
         RouterModule.forChild(routes),
     ],
 })
-export class BarPrototypeModule {}
+export default class  BarPrototypeModule {}

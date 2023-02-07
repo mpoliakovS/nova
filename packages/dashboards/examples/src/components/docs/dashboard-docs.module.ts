@@ -25,7 +25,6 @@ import { Apollo } from "apollo-angular";
 import { HttpLink } from "apollo-angular/http";
 
 import {
-    DEMO_PATH_TOKEN,
     NuiDocsModule,
     NuiMessageModule,
 } from "@nova-ui/bits";
@@ -38,23 +37,23 @@ const exampleRoutes: Routes = [
     {
         path: "overview",
         loadChildren: async () =>
-            import("./overview/overview.module").then(
-                (m) => m.OverviewModule
-            ) as Promise<Type<any>>,
+            import("./overview/overview.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "tutorials",
         loadChildren: async () =>
-            import("./tutorials/tutorials.module").then(
-                (m) => m.TutorialsModule
-            ) as Promise<Type<any>>,
+            import("./tutorials/tutorials.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "widget-types",
         loadChildren: async () =>
-            import("./widget-types/widget-types.module").then(
-                (m) => m.WidgetTypesModule
-            ) as Promise<Type<any>>,
+            import("./widget-types/widget-types.module") as object as Promise<
+                Type<any>
+            >,
     },
 ];
 
@@ -64,19 +63,8 @@ const exampleRoutes: Routes = [
         NuiMessageModule,
         RouterModule.forChild(exampleRoutes),
     ],
-    providers: [
-        {
-            provide: DEMO_PATH_TOKEN,
-            useFactory: () =>
-                (<any>require).context(
-                    `!!raw-loader!./`,
-                    true,
-                    /.*\.(ts|html|less)$/
-                ),
-        },
-    ],
 })
-export class DashboardDocsModule {
+export default class DashboardDocsModule {
     constructor(httpLink: HttpLink, apollo: Apollo) {
         apollo.createNamed(APOLLO_API_NAMESPACE.COUNTRIES, {
             link: httpLink.create({ uri: COUNTRIES_API }),

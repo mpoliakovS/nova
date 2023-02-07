@@ -28,30 +28,30 @@ const exampleRoutes: Routes = [
     {
         path: "overview",
         loadChildren: async () =>
-            import("./overview/chart-docs-accessors-overview.module").then(
-                (m) => m.ChartDocsAccessorsOverviewModule
-            ) as Promise<Type<any>>,
+            import(
+                "./overview/chart-docs-accessors-overview.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "data",
         loadChildren: async () =>
-            import("./data/chart-docs-accessors-data.module").then(
-                (m) => m.ChartDocsAccessorsDataModule
-            ) as Promise<Type<any>>,
+            import(
+                "./data/chart-docs-accessors-data.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "colors",
         loadChildren: async () =>
-            import("./colors/chart-docs-accessors-colors.module").then(
-                (m) => m.ChartDocsAccessorsColorsModule
-            ) as Promise<Type<any>>,
+            import(
+                "./colors/chart-docs-accessors-colors.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "markers",
         loadChildren: async () =>
-            import("./markers/chart-docs-accessors-markers.module").then(
-                (m) => m.ChartDocsAccessorsMarkersModule
-            ) as Promise<Type<any>>,
+            import(
+                "./markers/chart-docs-accessors-markers.module"
+            ) as object as Promise<Type<any>>,
     },
 ];
 
@@ -65,4 +65,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsAccessorsModule {}
+export default class ChartDocsAccessorsModule {}

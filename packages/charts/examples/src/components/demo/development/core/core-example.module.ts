@@ -85,4 +85,4 @@ environment.logLevel = LogLevel.debug;
         } as Provider,
     ],
 })
-export class CoreExampleModule {}
+export default class  CoreExampleModule {}

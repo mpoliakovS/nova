@@ -28,44 +28,44 @@ const exampleRoutes: Routes = [
     {
         path: "accessors",
         loadChildren: async () =>
-            import("./accessors/chart-docs-accessors.module").then(
-                (m) => m.ChartDocsAccessorsModule
-            ) as Promise<Type<any>>,
+            import(
+                "./accessors/chart-docs-accessors.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "chart-setup",
         loadChildren: async () =>
-            import("./chart-setup/chart-docs-chart-setup.module").then(
-                (m) => m.ChartDocsChartSetupModule
-            ) as Promise<Type<any>>,
+            import(
+                "./chart-setup/chart-docs-chart-setup.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "events",
         loadChildren: async () =>
-            import("./events/chart-docs-events.module").then(
-                (m) => m.ChartDocsEventsModule
-            ) as Promise<Type<any>>,
+            import("./events/chart-docs-events.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "grid-config",
         loadChildren: async () =>
-            import("./grid-config/chart-docs-grid-config.module").then(
-                (m) => m.ChartDocsGridConfigModule
-            ) as Promise<Type<any>>,
+            import(
+                "./grid-config/chart-docs-grid-config.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "legend",
         loadChildren: async () =>
-            import("./legend/chart-docs-legend-example.module").then(
-                (m) => m.ChartDocsLegendExampleModule
-            ) as Promise<Type<any>>,
+            import(
+                "./legend/chart-docs-legend-example.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "scales",
         loadChildren: async () =>
-            import("./scales/chart-docs-scales.module").then(
-                (m) => m.ChartDocsScalesModule
-            ) as Promise<Type<any>>,
+            import("./scales/chart-docs-scales.module") as object as Promise<
+                Type<any>
+            >,
     },
 ];
 
@@ -78,4 +78,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsAdvancedUsageModule {}
+export default class ChartDocsAdvancedUsageModule {}

@@ -126,4 +126,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class TextboxModule {}
+export default class TextboxModule {}

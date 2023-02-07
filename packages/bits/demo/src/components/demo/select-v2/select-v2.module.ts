@@ -281,4 +281,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class SelectV2Module {}
+export default class SelectV2Module {}

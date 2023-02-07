@@ -141,4 +141,4 @@ const routes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsBucketedBarModule {}
+export default class  ChartDocsBucketedBarModule {}

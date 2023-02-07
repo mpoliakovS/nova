@@ -98,4 +98,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class CheckboxModule {}
+export default class CheckboxModule {}

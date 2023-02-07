@@ -127,4 +127,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class RepeatModule {}
+export default class RepeatModule {}

@@ -114,4 +114,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ChipsModule {}
+export default class ChipsModule {}

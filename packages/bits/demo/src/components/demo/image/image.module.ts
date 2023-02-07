@@ -83,4 +83,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ImageModule {}
+export default class ImageModule {}

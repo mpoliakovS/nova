@@ -49,4 +49,4 @@ const routes = [
     declarations: [HighlightExampleComponent],
     exports: [RouterModule],
 })
-export class HighlightModule {}
+export default class HighlightModule {}

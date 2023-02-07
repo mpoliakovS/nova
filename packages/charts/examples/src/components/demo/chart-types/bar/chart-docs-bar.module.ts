@@ -177,4 +177,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsBarModule {}
+export default class  ChartDocsBarModule {}

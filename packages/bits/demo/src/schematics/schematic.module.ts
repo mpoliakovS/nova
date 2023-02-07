@@ -358,4 +358,4 @@ const staticRoutes: Routes = [
         },
     ],
 })
-export class SchematicModule {}
+export default class SchematicModule {}

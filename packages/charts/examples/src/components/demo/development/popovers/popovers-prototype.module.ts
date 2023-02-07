@@ -82,4 +82,4 @@ const routes: Routes = [
     ],
     providers: [],
 })
-export class PopoversPrototypeModule {}
+export default class  PopoversPrototypeModule {}

@@ -26,7 +26,7 @@ import { AbstractControl, FormBuilder, Validators } from "@angular/forms";
     templateUrl: "./form-field-complex.example.component.html",
 })
 export class FormFieldComplexExampleComponent {
-    static matchPassword(group: AbstractControl) {
+    static matchPassword(group: AbstractControl): { isValid: boolean } | null {
         const password = group.get("password");
         const confirm = group.get("confirmPassword");
         if (!password || !confirm) {

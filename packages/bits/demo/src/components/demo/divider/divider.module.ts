@@ -50,4 +50,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class DividerModule {}
+export default class DividerModule {}

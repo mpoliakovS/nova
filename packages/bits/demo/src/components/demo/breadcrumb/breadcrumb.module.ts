@@ -143,4 +143,5 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class BreadcrumbModule {}
+class BreadcrumbModule {}
+export default BreadcrumbModule;

@@ -80,4 +80,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class SwitchModule {}
+export default class SwitchModule {}

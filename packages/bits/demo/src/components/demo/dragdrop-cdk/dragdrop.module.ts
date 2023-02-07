@@ -54,4 +54,4 @@ const routes = [
     declarations: [DragdropExampleComponent],
     exports: [RouterModule],
 })
-export class DragDropCdkDemoModule {}
+export default class DragDropCdkDemoModule {}

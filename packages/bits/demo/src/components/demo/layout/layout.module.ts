@@ -93,4 +93,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class LayoutModule {}
+export default class LayoutModule {}

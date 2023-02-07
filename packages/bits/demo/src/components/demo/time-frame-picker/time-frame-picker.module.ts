@@ -116,4 +116,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class TimeFramePickerModule {}
+export default class TimeFramePickerModule {}

@@ -42,10 +42,7 @@ const routes: Routes = [
     },
     {
         path: "drag-and-drop",
-        loadChildren: async () =>
-            import("./drag-and-drop/dnd.module").then(
-                (m) => m.DndModule
-            ) as Promise<Type<any>>,
+        loadChildren: async () => import("./drag-and-drop/dnd.module"),
         data: {
             srlc: {
                 stage: SrlcStage.beta,
@@ -59,4 +56,4 @@ const routes: Routes = [
     declarations: [SummaryComponent],
     exports: [RouterModule],
 })
-export class ExternalLibrariesModule {}
+export default class ExternalLibrariesModule {}

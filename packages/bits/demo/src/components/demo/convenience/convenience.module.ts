@@ -43,9 +43,9 @@ const routes: Routes = [
     {
         path: "time-frame-bar",
         loadChildren: async () =>
-            import("./time-frame-bar/time-frame-bar.module").then(
-                (m) => m.TimeFrameBarModule
-            ) as Promise<Type<any>>,
+            import(
+                "./time-frame-bar/time-frame-bar.module"
+            ) as object as Promise<Type<any>>,
     },
 ];
 
@@ -54,4 +54,4 @@ const routes: Routes = [
     declarations: [SummaryComponent],
     exports: [RouterModule],
 })
-export class ConvenienceModule {}
+export default class ConvenienceModule {}

@@ -127,4 +127,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class WizardModule {}
+export default class WizardModule {}

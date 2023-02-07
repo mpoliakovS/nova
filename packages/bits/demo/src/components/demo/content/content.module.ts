@@ -52,4 +52,4 @@ const routes = [
     declarations: [ContentExampleComponent],
     exports: [RouterModule],
 })
-export class ContentModule {}
+export default class ContentModule {}

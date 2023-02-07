@@ -102,4 +102,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ToastModule {}
+export default class ToastModule {}

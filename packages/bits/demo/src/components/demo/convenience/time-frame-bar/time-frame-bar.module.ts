@@ -107,4 +107,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class TimeFrameBarModule {}
+export default class TimeFrameBarModule {}

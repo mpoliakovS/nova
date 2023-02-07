@@ -319,4 +319,4 @@ const routes = [
     providers: [DatePipe],
     exports: [RouterModule],
 })
-export class TableModule {}
+export default class TableModule {}

@@ -39,16 +39,16 @@ const exampleRoutes: Routes = [
     {
         path: "domains",
         loadChildren: async () =>
-            import("./domains/chart-docs-domains.module").then(
-                (m) => m.ChartDocsDomainsModule
-            ) as Promise<Type<any>>,
+            import("./domains/chart-docs-domains.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "formatters",
         loadChildren: async () =>
-            import("./formatters/chart-docs-formatters.module").then(
-                (m) => m.ChartDocsFormattersModule
-            ) as Promise<Type<any>>,
+            import(
+                "./formatters/chart-docs-formatters.module"
+            ) as object as Promise<Type<any>>,
     },
 ];
 
@@ -61,4 +61,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsScalesModule {}
+export default class ChartDocsScalesModule {}

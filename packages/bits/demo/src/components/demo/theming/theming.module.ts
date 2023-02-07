@@ -76,4 +76,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ThemingModule {}
+export default class ThemingModule {}

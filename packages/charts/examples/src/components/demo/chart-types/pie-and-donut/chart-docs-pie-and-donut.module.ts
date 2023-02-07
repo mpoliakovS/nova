@@ -103,4 +103,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsPieAndDonutModule {}
+export default class  ChartDocsPieAndDonutModule {}

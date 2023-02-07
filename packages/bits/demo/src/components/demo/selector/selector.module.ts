@@ -37,4 +37,4 @@ const routes = [
     declarations: [SelectorExampleComponent],
     exports: [RouterModule],
 })
-export class SelectorModule {}
+export default class SelectorModule {}

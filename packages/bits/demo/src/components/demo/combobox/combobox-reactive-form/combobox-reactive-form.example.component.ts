@@ -18,7 +18,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -29,7 +29,7 @@ import { ToastService } from "@nova-ui/bits";
     selector: "nui-combobox-reactive-form",
     templateUrl: "./combobox-reactive-form.example.component.html",
 })
-export class ComboboxReactiveFormExampleComponent implements OnInit {
+export class ComboboxReactiveFormExampleComponent implements OnInit, OnDestroy {
     public dataset = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "Item 2",

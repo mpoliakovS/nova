@@ -75,4 +75,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ResizeModule {}
+export default class ResizeModule {}

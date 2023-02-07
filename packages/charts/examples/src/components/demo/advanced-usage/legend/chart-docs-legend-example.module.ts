@@ -120,4 +120,4 @@ const legendRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsLegendExampleModule {}
+export default class  ChartDocsLegendExampleModule {}

@@ -96,4 +96,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsPopoversModule {}
+export default class  ChartDocsPopoversModule {}

@@ -25,16 +25,16 @@ const exampleRoutes: Routes = [
     {
         path: "tooltips",
         loadChildren: async () =>
-            import("./tooltips/chart-docs-tooltips.module").then(
-                (m) => m.ChartDocsTooltipsModule
-            ) as Promise<Type<any>>,
+            import(
+                "./tooltips/chart-docs-tooltips.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "popovers",
         loadChildren: async () =>
-            import("./popovers/chart-docs-popovers.module").then(
-                (m) => m.ChartDocsPopoversModule
-            ) as Promise<Type<any>>,
+            import(
+                "./popovers/chart-docs-popovers.module"
+            ) as object as Promise<Type<any>>,
     },
 ];
 
@@ -43,4 +43,4 @@ const exampleRoutes: Routes = [
     imports: [RouterModule.forChild(exampleRoutes)],
     providers: [],
 })
-export class ChartDocsPluginsModule {}
+export default class ChartDocsPluginsModule {}

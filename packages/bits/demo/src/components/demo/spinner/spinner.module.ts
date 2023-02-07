@@ -86,4 +86,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class SpinnerModule {}
+export default class SpinnerModule {}

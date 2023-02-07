@@ -18,7 +18,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import { NgModule, Type } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { ChartExampleIndexComponent } from "../../chart-example-index.component";
@@ -40,51 +40,37 @@ const appRoutes: Routes = [
     {
         path: "advanced-usage",
         loadChildren: async () =>
-            import(
-                "../demo/advanced-usage/chart-docs-advanced-usage.module"
-            ).then((m) => m.ChartDocsAdvancedUsageModule) as Promise<Type<any>>,
+            import("../demo/advanced-usage/chart-docs-advanced-usage.module"),
     },
     {
         path: "chart-types",
         loadChildren: async () =>
-            import("../demo/chart-types/chart-docs-chart-types.module").then(
-                (m) => m.ChartDocsChartTypesModule
-            ) as Promise<Type<any>>,
+            import("../demo/chart-types/chart-docs-chart-types.module"),
     },
     {
         path: "time-frame-bar",
         loadChildren: async () =>
-            import(
-                "../demo/time-frame-bar/chart-docs-time-frame-bar.module"
-            ).then((m) => m.ChartDocsTimeFrameBarModule) as Promise<Type<any>>,
+            import("../demo/time-frame-bar/chart-docs-time-frame-bar.module"),
     },
     {
         path: "development",
         loadChildren: async () =>
-            import("../demo/development/charts-development.module").then(
-                (m) => m.ChartsDevelopmentModule
-            ) as Promise<Type<any>>,
+            import("../demo/development/charts-development.module"),
     },
     {
         path: "layout",
         loadChildren: async () =>
-            import("../demo/layout/chart-docs-layout.module").then(
-                (m) => m.ChartDocsLayoutModule
-            ) as Promise<Type<any>>,
+            import("../demo/layout/chart-docs-layout.module"),
     },
     {
         path: "plugins",
         loadChildren: async () =>
-            import("../demo/plugins/chart-docs-plugins.module").then(
-                (m) => m.ChartDocsPluginsModule
-            ) as Promise<Type<any>>,
+            import("../demo/plugins/chart-docs-plugins.module"),
     },
     {
         path: "thresholds",
         loadChildren: async () =>
-            import("../demo/thresholds/chart-docs-thresholds.module").then(
-                (m) => m.ChartDocsThresholdsModule
-            ) as Promise<Type<any>>,
+            import("../demo/thresholds/chart-docs-thresholds.module"),
     },
 ];
 

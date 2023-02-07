@@ -44,4 +44,4 @@ const routes = [
     imports: [NuiDocsModule, RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class PipesModule {}
+export default class PipesModule {}

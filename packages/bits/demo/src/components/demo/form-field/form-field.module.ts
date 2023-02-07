@@ -137,4 +137,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class FormFieldModule {}
+export default class FormFieldModule {}

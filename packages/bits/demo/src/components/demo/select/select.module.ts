@@ -110,4 +110,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class SelectModule {}
+export default class SelectModule {}

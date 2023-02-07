@@ -103,4 +103,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class PopupModule {}
+export default class PopupModule {}

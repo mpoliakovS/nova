@@ -42,4 +42,4 @@ const routes: Routes = [
     declarations: [ThresholdsPrototypeComponent],
     imports: [DemoCommonModule, NuiChartsModule, RouterModule.forChild(routes)],
 })
-export class ThresholdsPrototypeModule {}
+export default class  ThresholdsPrototypeModule {}

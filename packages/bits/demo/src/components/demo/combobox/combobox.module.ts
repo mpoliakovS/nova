@@ -117,4 +117,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ComboboxModule {}
+export default class ComboboxModule {}

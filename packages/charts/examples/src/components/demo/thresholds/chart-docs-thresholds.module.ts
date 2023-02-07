@@ -121,4 +121,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsThresholdsModule {}
+export default class  ChartDocsThresholdsModule {}

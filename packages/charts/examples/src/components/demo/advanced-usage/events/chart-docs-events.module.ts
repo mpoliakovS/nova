@@ -83,4 +83,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsEventsModule {}
+export default class  ChartDocsEventsModule {}

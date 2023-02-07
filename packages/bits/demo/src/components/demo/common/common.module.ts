@@ -249,4 +249,4 @@ const routes: Routes = [
     providers: [DatePipe],
     exports: [RouterModule],
 })
-export class CommonModule {}
+export default class CommonModule {}

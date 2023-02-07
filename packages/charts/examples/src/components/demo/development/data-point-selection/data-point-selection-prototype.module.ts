@@ -57,4 +57,4 @@ const routes: Routes = [
     ],
     providers: [],
 })
-export class DataPointSelectionPrototypeModule {}
+export default class  DataPointSelectionPrototypeModule {}

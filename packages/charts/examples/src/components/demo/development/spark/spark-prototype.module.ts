@@ -49,4 +49,4 @@ const routes: Routes = [
         RouterModule.forChild(routes),
     ],
 })
-export class SparkPrototypeModule {}
+export default class  SparkPrototypeModule {}

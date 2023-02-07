@@ -112,4 +112,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class PopoverModule {}
+export default class PopoverModule {}

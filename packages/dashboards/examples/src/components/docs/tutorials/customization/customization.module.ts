@@ -36,32 +36,28 @@ const routes: Routes = [
         loadChildren: async () =>
             import(
                 "./configurator-section/custom-configurator-section.module"
-            ).then((m) => m.CustomConfiguratorSectionModule) as Promise<
-                Type<any>
-            >,
+            ) as object as Promise<Type<any>>,
     },
     {
         path: CustomizationModuleRoute.Widget,
         loadChildren: async () =>
-            import("./widget/custom-widget.module").then(
-                (m) => m.CustomWidgetModule
-            ) as Promise<Type<any>>,
+            import("./widget/custom-widget.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: CustomizationModuleRoute.Formatter,
         loadChildren: async () =>
-            import("./formatter/custom-formatter.module").then(
-                (m) => m.CustomFormatterModuleRoute
-            ) as Promise<Type<any>>,
+            import("./formatter/custom-formatter.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: CustomizationModuleRoute.DataSourceConfigurator,
         loadChildren: async () =>
             import(
                 "./data-source-configurator/custom-data-source-configurator.module"
-            ).then((m) => m.CustomDataSourceConfiguratorModuleRoute) as Promise<
-                Type<any>
-            >,
+            ) as object as Promise<Type<any>>,
     },
 ];
 
@@ -69,4 +65,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     providers: [ConfiguratorHeadingService],
 })
-export class CustomizationModule {}
+export default class CustomizationModule {}

@@ -93,4 +93,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class RadioGroupModule {}
+export default class RadioGroupModule {}

@@ -61,4 +61,4 @@ const routes: Routes = [
     ],
     providers: [],
 })
-export class TooltipsPrototypeModule {}
+export default class  TooltipsPrototypeModule {}

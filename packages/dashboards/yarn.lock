@@ -207,7 +207,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@^15.0.3":
+"@angular/cdk@15.0.3":
   version "15.0.3"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-15.0.3.tgz#9f995914d7d8fb0cb035cf2ba9c956b741fdbf79"
   integrity sha512-iRLV6V6ksIshDL8Cdn1+DUNTRLqj+DAqmYTWYCEvH4qU6o0XSeXrAHNW5zNFqWgCZbmWt03G5jOBWBNaxa9QKw==

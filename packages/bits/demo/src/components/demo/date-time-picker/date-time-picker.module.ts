@@ -113,4 +113,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class DateTimePickerModule {}
+export default class DateTimePickerModule {}

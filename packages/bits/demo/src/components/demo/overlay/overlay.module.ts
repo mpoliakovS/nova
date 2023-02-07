@@ -192,4 +192,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class OverlayModule {}
+export default class OverlayModule {}

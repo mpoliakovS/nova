@@ -163,4 +163,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class DialogModule {}
+export default class DialogModule {}

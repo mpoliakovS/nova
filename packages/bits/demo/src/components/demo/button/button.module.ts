@@ -103,4 +103,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ButtonModule {}
+export default class ButtonModule {}

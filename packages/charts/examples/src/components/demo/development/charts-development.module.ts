@@ -25,99 +25,97 @@ const chartsRoutes: Routes = [
     {
         path: "core",
         loadChildren: async () =>
-            import("./core/core-example.module").then(
-                (m) => m.CoreExampleModule
-            ) as Promise<Type<any>>,
+            import("./core/core-example.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "pie",
         loadChildren: async () =>
-            import("./pie-chart/pie-chart-example.module").then(
-                (m) => m.PieChartExampleModule
-            ) as Promise<Type<any>>,
+            import("./pie-chart/pie-chart-example.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "bar",
         loadChildren: async () =>
-            import("./bar/bar-prototype.module").then(
-                (m) => m.BarPrototypeModule
-            ) as Promise<Type<any>>,
+            import("./bar/bar-prototype.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "collection",
         loadChildren: async () =>
-            import("./chart-collection/chart-collection-example.module").then(
-                (m) => m.ChartCollectionExampleModule
-            ) as Promise<Type<any>>,
+            import(
+                "./chart-collection/chart-collection-example.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "popovers",
         loadChildren: async () =>
-            import("./popovers/popovers-prototype.module").then(
-                (m) => m.PopoversPrototypeModule
-            ) as Promise<Type<any>>,
+            import("./popovers/popovers-prototype.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "tooltips",
         loadChildren: async () =>
-            import("./tooltips/tooltips-prototype.module").then(
-                (m) => m.TooltipsPrototypeModule
-            ) as Promise<Type<any>>,
+            import("./tooltips/tooltips-prototype.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "spark",
         loadChildren: async () =>
-            import("./spark/spark-prototype.module").then(
-                (m) => m.SparkPrototypeModule
-            ) as Promise<Type<any>>,
+            import("./spark/spark-prototype.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "gauge",
         loadChildren: async () =>
-            import("./gauge/gauge-prototypes.module").then(
-                (m) => m.GaugePrototypesModule
-            ) as Promise<Type<any>>,
+            import("./gauge/gauge-prototypes.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "type-switch",
         loadChildren: async () =>
-            import("./type-switch/type-switch-example.module").then(
-                (m) => m.TypeSwitchExampleModule
-            ) as Promise<Type<any>>,
+            import(
+                "./type-switch/type-switch-example.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "status",
         loadChildren: async () =>
-            import("./status/chart-status-example.module").then(
-                (m) => m.ChartStatusExampleModule
-            ) as Promise<Type<any>>,
+            import("./status/chart-status-example.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "time-bands",
         loadChildren: async () =>
-            import("./time-bands/time-bands-example.module").then(
-                (m) => m.TimeBandsExampleModule
-            ) as Promise<Type<any>>,
+            import(
+                "./time-bands/time-bands-example.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "data-point-selection",
         loadChildren: async () =>
             import(
                 "./data-point-selection/data-point-selection-prototype.module"
-            ).then((m) => m.DataPointSelectionPrototypeModule) as Promise<
-                Type<any>
-            >,
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "thresholds",
         loadChildren: async () =>
-            import("./thresholds/thresholds-prototype.module").then(
-                (m) => m.ThresholdsPrototypeModule
-            ) as Promise<Type<any>>,
+            import(
+                "./thresholds/thresholds-prototype.module"
+            ) as object as Promise<Type<any>>,
     },
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(chartsRoutes)],
 })
-export class ChartsDevelopmentModule {}
+export default class ChartsDevelopmentModule {}

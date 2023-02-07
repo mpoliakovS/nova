@@ -28,65 +28,65 @@ const exampleRoutes: Routes = [
     {
         path: "bar",
         loadChildren: async () =>
-            import("./bar/chart-docs-bar.module").then(
-                (m) => m.ChartDocsBarModule
-            ) as Promise<Type<any>>,
+            import("./bar/chart-docs-bar.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "bucketed-bar",
         loadChildren: async () =>
-            import("./bucketed-bar/chart-docs-bucketed-bar.module").then(
-                (m) => m.ChartDocsBucketedBarModule
-            ) as Promise<Type<any>>,
+            import(
+                "./bucketed-bar/chart-docs-bucketed-bar.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "line",
         loadChildren: async () =>
-            import("./line/chart-docs-line.module").then(
-                (m) => m.ChartDocsLineModule
-            ) as Promise<Type<any>>,
+            import("./line/chart-docs-line.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "pie-and-donut",
         loadChildren: async () =>
-            import("./pie-and-donut/chart-docs-pie-and-donut.module").then(
-                (m) => m.ChartDocsPieAndDonutModule
-            ) as Promise<Type<any>>,
+            import(
+                "./pie-and-donut/chart-docs-pie-and-donut.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "spark",
         loadChildren: async () =>
-            import("./spark/chart-docs-spark.module").then(
-                (m) => m.ChartDocsSparkModule
-            ) as Promise<Type<any>>,
+            import("./spark/chart-docs-spark.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "gauge",
         loadChildren: async () =>
-            import("./gauge/chart-docs-gauge.module").then(
-                (m) => m.ChartDocsGaugeModule
-            ) as Promise<Type<any>>,
+            import("./gauge/chart-docs-gauge.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "status",
         loadChildren: async () =>
-            import("./status/chart-docs-status.module").then(
-                (m) => m.ChartDocsStatusModule
-            ) as Promise<Type<any>>,
+            import("./status/chart-docs-status.module") as object as Promise<
+                Type<any>
+            >,
     },
     {
         path: "waterfall",
         loadChildren: async () =>
-            import("./waterfall/chart-docs-waterfall.module").then(
-                (m) => m.ChartDocsWaterfallModule
-            ) as Promise<Type<any>>,
+            import(
+                "./waterfall/chart-docs-waterfall.module"
+            ) as object as Promise<Type<any>>,
     },
     {
         path: "area",
         loadChildren: async () =>
-            import("./area/chart-docs-area.module").then(
-                (m) => m.ChartDocsAreaModule
-            ) as Promise<Type<any>>,
+            import("./area/chart-docs-area.module") as object as Promise<
+                Type<any>
+            >,
     },
 ];
 
@@ -101,4 +101,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsChartTypesModule {}
+export default class ChartDocsChartTypesModule {}

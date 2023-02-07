@@ -97,4 +97,4 @@ const routes = [
     ],
     exports: [RouterModule],
 })
-export class ExpanderModule {}
+export default class ExpanderModule {}

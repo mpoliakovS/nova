@@ -208,4 +208,4 @@ const exampleRoutes: Routes = [
     ],
     providers: [],
 })
-export class ChartDocsGaugeModule {}
+export default class  ChartDocsGaugeModule {}
