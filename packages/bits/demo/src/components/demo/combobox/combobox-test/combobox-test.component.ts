@@ -57,11 +57,7 @@ export class ComboboxTestComponent implements OnInit {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "Item 2",
     };
-    public myForm = this.formBuilder.group({
-        item: this.formBuilder.control(this.reactiveFormDataset.selectedItem, [
-            Validators.required,
-        ]),
-    });
+    public myForm;
     public requiredDataset = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "",
@@ -157,7 +153,14 @@ export class ComboboxTestComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService
-    ) {}
+    ) {
+        this.myForm = this.formBuilder.group({
+            item: this.formBuilder.control(
+                this.reactiveFormDataset.selectedItem,
+                [Validators.required]
+            ),
+        });
+    }
 
     public ngOnInit(): void {
         this.myForm.controls.item.valueChanges.subscribe((value) =>

@@ -46,19 +46,7 @@ import {
 })
 export class WizardWithConfirmationDialogOnCancelExampleComponent {
     public confirmationDialog: NuiDialogRef;
-    public form = this.formBuilder.group({
-        personDetails: this.formBuilder.group({
-            firstName: ["", [Validators.required, Validators.minLength(3)]],
-            lastName: ["", [Validators.required, Validators.minLength(3)]],
-        }),
-        contactDetails: this.formBuilder.group({
-            email: ["", [Validators.required, Validators.email]],
-            phone: [""],
-        }),
-        confirm: this.formBuilder.group({
-            confirmed: [false, Validators.requiredTrue],
-        }),
-    });
+    public form;
 
     @ViewChild("wizard") private wizard: WizardHorizontalComponent;
 
@@ -67,7 +55,21 @@ export class WizardWithConfirmationDialogOnCancelExampleComponent {
         private toastService: ToastService,
         private formBuilder: FormBuilder,
         public cd: ChangeDetectorRef
-    ) {}
+    ) {
+        this.form = this.formBuilder.group({
+            personDetails: this.formBuilder.group({
+                firstName: ["", [Validators.required, Validators.minLength(3)]],
+                lastName: ["", [Validators.required, Validators.minLength(3)]],
+            }),
+            contactDetails: this.formBuilder.group({
+                email: ["", [Validators.required, Validators.email]],
+                phone: [""],
+            }),
+            confirm: this.formBuilder.group({
+                confirmed: [false, Validators.requiredTrue],
+            }),
+        });
+     }
 
     // Open confirmation dialog
     public openConfirmationDialog(content: TemplateRef<string>): void {

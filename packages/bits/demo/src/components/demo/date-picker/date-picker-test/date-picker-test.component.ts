@@ -42,13 +42,14 @@ export class DatePickerTestComponent {
     public month: number;
     public year: number;
     public caption: string;
-    public reactiveDatepickerForm = this.formBuilder.group({
-        datePicker: this.formBuilder.control(moment()),
-    });
+    public reactiveDatepickerForm;
     public dateDisabled: IDatePickerDisabledDate[];
     public todayDateDisabled: IDatePickerDisabledDate[];
 
     constructor(private formBuilder: FormBuilder) {
+        this.reactiveDatepickerForm = this.formBuilder.group({
+            datePicker: this.formBuilder.control(moment()),
+        });
         this.dt = moment();
         this.dtPreserve = moment();
         this.localActiveDate = this.dt;

@@ -68,12 +68,7 @@ export class TableColumnsAddRemoveExampleComponent {
     ];
     // full copy of displayed columns added to update columns only when updateTable() is called
     public displayedColumnsCopy = this.displayedColumns.slice();
-    public myForm = this.formBuilder.group({
-        checkboxGroup: this.formBuilder.control(this.displayedColumnsCopy, [
-            Validators.required,
-            Validators.minLength(3),
-        ]),
-    });
+    public myForm;
     public newColumn: string;
     public dataSource = getData();
     @ViewChild(TableComponent) table: TableComponent<IExampleTableModel>;
@@ -81,7 +76,14 @@ export class TableColumnsAddRemoveExampleComponent {
     constructor(
         @Inject(DialogService) private dialogService: DialogService,
         private formBuilder: FormBuilder
-    ) {}
+    ) {
+        this.myForm = this.formBuilder.group({
+            checkboxGroup: this.formBuilder.control(this.displayedColumnsCopy, [
+                Validators.required,
+                Validators.minLength(3),
+            ]),
+        });
+    }
 
     public columnsChanged(columns: any): void {
         this.displayedColumnsCopy = columns;

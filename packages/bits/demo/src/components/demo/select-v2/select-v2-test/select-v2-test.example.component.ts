@@ -100,9 +100,7 @@ export class SelectV2TestExampleComponent
     );
     // Form
     public selectControl = new FormControl<IExampleItem | null>(null);
-    public fancyForm = this.formBuilder.group({
-        select: this.formBuilder.control("", Validators.required),
-    });
+    public fancyForm;
     // Test
     public customStylesOverlayConfig: OverlayConfig = {
         panelClass: [OVERLAY_WITH_POPUP_STYLES_CLASS, "custom-select-styles"],
@@ -114,7 +112,11 @@ export class SelectV2TestExampleComponent
     constructor(
         @Inject(DialogService) private dialogService: DialogService,
         private formBuilder: FormBuilder
-    ) {}
+    ) {
+        this.fancyForm = this.formBuilder.group({
+            select: this.formBuilder.control("", Validators.required),
+        });
+    }
 
     // Dialog
     public open(content: TemplateRef<string>): void {

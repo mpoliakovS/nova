@@ -71,12 +71,7 @@ export class TableTestComponent implements AfterViewInit, OnDestroy, OnInit {
     public displayedColumns = this.availableColumns.slice();
     // full copy of displayed columns added to update columns only when updateTable() is called
     public displayedColumnsCopy = this.displayedColumns.slice();
-    public myForm = this.formBuilder.group({
-        checkboxGroup: this.formBuilder.control(this.displayedColumnsCopy, [
-            Validators.required,
-            Validators.minLength(3),
-        ]),
-    });
+    public myForm;
     public alignmentsArray: TableAlignmentOptions[] = [
         "right",
         "left",
@@ -91,14 +86,7 @@ export class TableTestComponent implements AfterViewInit, OnDestroy, OnInit {
     public resizable: boolean | undefined = true;
     public searchTerm: string;
     public sortable: boolean | undefined = true;
-    public optionsForm = this.formBuilder.group({
-        alignment: this.formBuilder.control(this.alignment),
-        density: this.formBuilder.control(this.density),
-        positionWidth: this.formBuilder.control(this.positionWidth),
-        reorderable: this.formBuilder.control(this.reorderable),
-        resizable: this.formBuilder.control(this.resizable),
-        sortable: this.formBuilder.control(this.sortable),
-    });
+    public optionsForm;
     public sortDirection: string = "asc";
     public sortedColumn: string = "position";
     public isFeatureColumnDisabled: boolean = true;
@@ -126,6 +114,20 @@ export class TableTestComponent implements AfterViewInit, OnDestroy, OnInit {
         public dataSourceService: ClientSideDataSource<ITestTableModel>
     ) {
         dataSourceService.setData(ELEMENT_DATA);
+        this.myForm = this.formBuilder.group({
+            checkboxGroup: this.formBuilder.control(this.displayedColumnsCopy, [
+                Validators.required,
+                Validators.minLength(3),
+            ]),
+        });
+        this.optionsForm = this.formBuilder.group({
+            alignment: this.formBuilder.control(this.alignment),
+            density: this.formBuilder.control(this.density),
+            positionWidth: this.formBuilder.control(this.positionWidth),
+            reorderable: this.formBuilder.control(this.reorderable),
+            resizable: this.formBuilder.control(this.resizable),
+            sortable: this.formBuilder.control(this.sortable),
+        });
     }
 
     public ngOnInit(): void {

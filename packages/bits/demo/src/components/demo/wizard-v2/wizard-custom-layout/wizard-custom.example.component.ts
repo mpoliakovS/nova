@@ -61,26 +61,29 @@ export class WizardCustomComponent extends WizardDirective {}
     ],
 })
 export class WizardCustomExampleComponent implements AfterViewInit {
-    public formGroup = this.formBuilder.group({
-        personDetails: this.formBuilder.group({
-            name: ["", [Validators.required, Validators.minLength(3)]],
-            symptoms: [undefined, Validators.required],
-        }),
-        diseaseDetails: this.formBuilder.group({
-            date: ["", Validators.required],
-        }),
-        contactDetails: this.formBuilder.group({
-            email: ["", [Validators.required, Validators.email]],
-            phone: [""],
-        }),
-    });
+    public form;
+
     public steps: number = 1;
     public selectedIndex: number = 0;
     public progress: number;
 
     @ViewChild("wizard") wizard: WizardCustomComponent;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.form = this.formBuilder.group({
+            personDetails: this.formBuilder.group({
+                name: ["", [Validators.required, Validators.minLength(3)]],
+                symptoms: [undefined, Validators.required],
+            }),
+            diseaseDetails: this.formBuilder.group({
+                date: ["", Validators.required],
+            }),
+            contactDetails: this.formBuilder.group({
+                email: ["", [Validators.required, Validators.email]],
+                phone: [""],
+            }),
+        });
+    }
 
     public ngAfterViewInit(): void {
         const update = (selectedIndex?: number, steps?: number) => {

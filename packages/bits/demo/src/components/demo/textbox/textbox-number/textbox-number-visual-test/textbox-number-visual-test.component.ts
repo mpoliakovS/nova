@@ -26,9 +26,11 @@ import { FormBuilder } from "@angular/forms";
     templateUrl: "./textbox-number-visual-test.component.html",
 })
 export class TextboxNumberVisualTestComponent {
-    public reactiveForm = this.formBuilder.group({
-        number: [10],
-    });
+    public reactiveForm;
 
-    constructor(public formBuilder: FormBuilder) {}
+    constructor(public formBuilder: FormBuilder) {
+        this.reactiveForm = this.formBuilder.group({
+            number: [10],
+        });
+    }
 }

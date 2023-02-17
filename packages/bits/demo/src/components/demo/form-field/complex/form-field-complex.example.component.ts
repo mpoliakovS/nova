@@ -48,18 +48,23 @@ export class FormFieldComplexExampleComponent {
         };
     }
 
-    public fancyForm = this.formBuilder.group(
-        {
-            password: this.formBuilder.control("", Validators.required),
-            confirmPassword: this.formBuilder.control("", Validators.required),
-        },
-        {
-            validators: [FormFieldComplexExampleComponent.matchPassword],
-        }
-    );
+    public fancyForm;
 
     constructor(
         private formBuilder: FormBuilder,
         private changeDetector: ChangeDetectorRef
-    ) {}
+    ) {
+        this.fancyForm = this.formBuilder.group(
+            {
+                password: this.formBuilder.control("", Validators.required),
+                confirmPassword: this.formBuilder.control(
+                    "",
+                    Validators.required
+                ),
+            },
+            {
+                validators: [FormFieldComplexExampleComponent.matchPassword],
+            }
+        );
+    }
 }

@@ -26,9 +26,7 @@ import { FormBuilder } from "@angular/forms";
     templateUrl: "./radio-group-visual-test.component.html",
 })
 export class RadioGroupVisualTestComponent {
-    public disabledForm = this.formBuilder.group({
-        radioGroup: this.formBuilder.control({ value: "", disabled: true }),
-    });
+    public disabledForm;
     public colors = ["Red", "Green", "Blue"];
     public colorHints = {
         Red: "hot color",
@@ -39,5 +37,9 @@ export class RadioGroupVisualTestComponent {
     public selectedFruit: string;
     public selectedColor: string;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.disabledForm = this.formBuilder.group({
+            radioGroup: this.formBuilder.control({ value: "", disabled: true }),
+        });
+    }
 }

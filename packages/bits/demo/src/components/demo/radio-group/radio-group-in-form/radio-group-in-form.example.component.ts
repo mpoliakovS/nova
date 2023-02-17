@@ -32,11 +32,13 @@ export class RadioGroupInFormExampleComponent {
         $localize`Tomato`,
         $localize`Carrot`,
     ];
-    public fancyForm = this.formBuilder.group({
-        radioGroup: this.formBuilder.control(this.vegetables[1], [
-            Validators.required,
-        ]),
-    });
+    public fancyForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.fancyForm = this.formBuilder.group({
+            radioGroup: this.formBuilder.control(this.vegetables[1], [
+                Validators.required,
+            ]),
+        });
+    }
 }

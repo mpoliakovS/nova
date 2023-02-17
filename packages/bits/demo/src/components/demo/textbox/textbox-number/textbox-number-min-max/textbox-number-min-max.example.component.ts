@@ -28,9 +28,11 @@ import { FormBuilder } from "@angular/forms";
 export class TextboxNumberMinMaxExampleComponent {
     public value = 10;
 
-    public reactiveForm = this.formBuilder.group({
-        number: [1],
-    });
+    public reactiveForm;
 
-    constructor(public formBuilder: FormBuilder) {}
+    constructor(public formBuilder: FormBuilder) {
+        this.reactiveForm = this.formBuilder.group({
+            number: [1],
+        });
+    }
 }

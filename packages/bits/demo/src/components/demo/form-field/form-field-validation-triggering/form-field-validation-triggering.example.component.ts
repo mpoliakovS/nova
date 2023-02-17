@@ -26,11 +26,13 @@ import { FormBuilder, Validators } from "@angular/forms";
     templateUrl: "./form-field-validation-triggering.example.component.html",
 })
 export class FormFieldValidationTriggeringxampleComponent {
-    public reactiveForm = this.formBuilder.group({
-        email: this.formBuilder.control(""),
-    });
+    public reactiveForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.reactiveForm = this.formBuilder.group({
+            email: this.formBuilder.control(""),
+        });
+    }
 
     public onAddValidators(): void {
         this.reactiveForm

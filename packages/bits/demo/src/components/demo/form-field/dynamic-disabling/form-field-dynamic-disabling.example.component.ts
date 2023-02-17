@@ -28,19 +28,21 @@ import { ToastService } from "@nova-ui/bits";
     templateUrl: "./form-field-dynamic-disabling.example.component.html",
 })
 export class FormFieldDynamicDisablingExampleComponent {
-    public dynamicForm = this.formBuilder.group({
-        password: this.formBuilder.control("", Validators.required),
-        confirmPassword: this.formBuilder.control(
-            { value: "", disabled: true },
-            Validators.required
-        ),
-    });
+    public dynamicForm;
     public visibleRadio: boolean;
 
     constructor(
         private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService
-    ) {}
+    ) {
+        this.dynamicForm = this.formBuilder.group({
+            password: this.formBuilder.control("", Validators.required),
+            confirmPassword: this.formBuilder.control(
+                { value: "", disabled: true },
+                Validators.required
+            ),
+        });
+    }
 
     public onPasswordBlurred(): void {
         if (this.dynamicForm.controls.password.valid) {

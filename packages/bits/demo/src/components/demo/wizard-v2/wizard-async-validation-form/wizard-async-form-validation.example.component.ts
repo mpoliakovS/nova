@@ -37,26 +37,28 @@ const fakeAsyncValidator = (c: AbstractControl) => of(null).pipe(delay(4000));
 })
 export class WizardAsyncFormValidationExampleComponent {
     public busy: boolean;
-    public form = this.formBuilder.group({
-        personDetails: this.formBuilder.group({
-            name: [
-                "",
-                [Validators.required, Validators.minLength(3)],
-                [fakeAsyncValidator],
-            ],
-        }),
-        contactDetails: this.formBuilder.group({
-            email: ["", [Validators.required, Validators.email]],
-            phone: [""],
-        }),
-    });
+    public form;
 
     @ViewChild("wizard") wizard: WizardHorizontalComponent;
 
     constructor(
         private formBuilder: FormBuilder,
         private toastService: ToastService
-    ) {}
+    ) {
+        this.form = this.formBuilder.group({
+            personDetails: this.formBuilder.group({
+                name: [
+                    "",
+                    [Validators.required, Validators.minLength(3)],
+                    [fakeAsyncValidator],
+                ],
+            }),
+            contactDetails: this.formBuilder.group({
+                email: ["", [Validators.required, Validators.email]],
+                phone: [""],
+            }),
+        });
+    }
 
     public onNextClick(selected: WizardStepV2Component): void {
         const { stepControl } = selected;

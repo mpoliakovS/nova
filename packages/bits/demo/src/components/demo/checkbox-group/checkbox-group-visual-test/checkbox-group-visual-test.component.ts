@@ -33,18 +33,20 @@ export class CheckboxGroupVisualTestComponent {
     public disabledOne = "DISABLED";
     public vegetables = [this.cabbage, this.potato, this.tomato, this.carrot];
     public selectedVegetables = [this.potato, this.tomato, this.disabledOne];
-    public testForm = this.formBuilder.group({
-        checkboxGroup: this.formBuilder.control({
-            value: this.selectedVegetables,
-            disabled: true,
-        }),
-        checkboxGroup2: this.formBuilder.control({
-            value: this.selectedVegetables,
-            disabled: false,
-        }),
-    });
+    public testForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.testForm = this.formBuilder.group({
+            checkboxGroup: this.formBuilder.control({
+                value: this.selectedVegetables,
+                disabled: true,
+            }),
+            checkboxGroup2: this.formBuilder.control({
+                value: this.selectedVegetables,
+                disabled: false,
+            }),
+        });
+    }
 
     public isChecked(vegetable: string): boolean {
         return this.selectedVegetables.indexOf(vegetable) > -1;

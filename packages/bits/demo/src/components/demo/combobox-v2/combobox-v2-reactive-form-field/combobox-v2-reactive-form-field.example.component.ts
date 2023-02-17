@@ -31,9 +31,11 @@ export class ComboboxV2ReactiveFormFieldExampleComponent {
     public items = Array.from({ length: 100 }).map(
         (_, i) => $localize`Item ${i}`
     );
-    public fancyForm = this.formBuilder.group({
-        combobox: this.formBuilder.control("", Validators.required),
-    });
+    public fancyForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.fancyForm = this.formBuilder.group({
+            combobox: this.formBuilder.control("", Validators.required),
+        });
+    }
 }

@@ -50,22 +50,7 @@ interface IWizardStepData {
     styleUrls: ["wizard-restore-state.example.component.less"],
 })
 export class WizardRestoreStateExampleComponent implements OnInit, OnDestroy {
-    public form = this.formBuilder.group({
-        personDetails: this.formBuilder.group({
-            name: ["", [Validators.required, Validators.minLength(3)]],
-            privacy: [false, [Validators.requiredTrue]],
-        }),
-        organization: this.formBuilder.group({
-            title: ["", [Validators.required]],
-            date: ["", [Validators.required]],
-            createDynamicStep1: [false],
-            createDynamicStep2: [false],
-        }),
-        contactDetails: this.formBuilder.group({
-            email: ["", [Validators.required, Validators.email]],
-            options: [""],
-        }),
-    });
+    public form;
     public activeDialog: NuiDialogRef;
     public state: IWizardState;
     public dynamicSteps: IWizardStepData[] = [];
@@ -78,7 +63,24 @@ export class WizardRestoreStateExampleComponent implements OnInit, OnDestroy {
         private formBuilder: FormBuilder,
         @Inject(DialogService) private dialogService: DialogService,
         private toastService: ToastService
-    ) {}
+    ) {
+        this.form = this.formBuilder.group({
+            personDetails: this.formBuilder.group({
+                name: ["", [Validators.required, Validators.minLength(3)]],
+                privacy: [false, [Validators.requiredTrue]],
+            }),
+            organization: this.formBuilder.group({
+                title: ["", [Validators.required]],
+                date: ["", [Validators.required]],
+                createDynamicStep1: [false],
+                createDynamicStep2: [false],
+            }),
+            contactDetails: this.formBuilder.group({
+                email: ["", [Validators.required, Validators.email]],
+                options: [""],
+            }),
+        });
+    }
 
     public ngOnInit(): void {
         this.form

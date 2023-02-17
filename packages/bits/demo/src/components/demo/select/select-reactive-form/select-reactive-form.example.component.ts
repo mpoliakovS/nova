@@ -38,16 +38,18 @@ export class SelectReactiveFormExampleComponent implements OnInit {
         ],
         selectedItem: "",
     };
-    public myForm = this.formBuilder.group({
-        item: this.formBuilder.control(this.dataset.selectedItem, [
-            Validators.required,
-        ]),
-    });
+    public myForm;
 
     constructor(
         private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService
-    ) {}
+    ) {
+        this.myForm = this.formBuilder.group({
+            item: this.formBuilder.control(this.dataset.selectedItem, [
+                Validators.required,
+            ]),
+        });
+    }
 
     public ngOnInit(): void {
         this.myForm.controls["item"].valueChanges.subscribe((value) =>

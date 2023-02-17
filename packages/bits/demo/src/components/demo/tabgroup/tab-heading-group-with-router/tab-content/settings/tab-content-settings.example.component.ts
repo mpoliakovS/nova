@@ -30,16 +30,18 @@ export class TabContentSettingsExampleComponent {
         "You can change your password using the form below:";
     public tabTitle: string = "Account Settings";
 
-    public dynamicForm = this.formBuilder.group({
-        password: this.formBuilder.control("", Validators.required),
-        confirmPassword: this.formBuilder.control(
-            { value: "", disabled: true },
-            Validators.required
-        ),
-    });
+    public dynamicForm;
     public visibleRadio: boolean;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.dynamicForm = this.formBuilder.group({
+            password: this.formBuilder.control("", Validators.required),
+            confirmPassword: this.formBuilder.control(
+                { value: "", disabled: true },
+                Validators.required
+            ),
+        });
+    }
 
     public onPasswordBlurred(): void {
         if (this.dynamicForm.controls.password.valid) {

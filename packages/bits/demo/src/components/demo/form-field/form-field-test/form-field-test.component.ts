@@ -27,22 +27,7 @@ import moment from "moment/moment";
     templateUrl: "./form-field-test.component.html",
 })
 export class FormFieldTestComponent implements OnInit {
-    public dynamicForm = this.formBuilder.group({
-        textbox: this.formBuilder.control("", Validators.required),
-        textboxNumber: this.formBuilder.control("", Validators.required),
-        radio: this.formBuilder.control({}, Validators.required),
-        checkbox: this.formBuilder.control(true, Validators.required),
-        checkboxGroup: this.formBuilder.control("", Validators.required),
-        switch: this.formBuilder.control(true, Validators.required),
-        selectV2: this.formBuilder.control("apple", Validators.required),
-        comboboxV2: this.formBuilder.control("apple", Validators.required),
-        datepicker: this.formBuilder.control(moment(), Validators.required),
-        timepicker: this.formBuilder.control({}, Validators.required),
-        dateTimePicker: this.formBuilder.control(moment("04/09/1989", "L"), [
-            // "L" is "MM/DD/YYY" in moment.js
-            Validators.required,
-        ]),
-    });
+    public dynamicForm;
 
     public dateTimePickerModel: string;
     public vegetables = [
@@ -52,7 +37,27 @@ export class FormFieldTestComponent implements OnInit {
         $localize`Carrot`,
     ];
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.dynamicForm = this.formBuilder.group({
+            textbox: this.formBuilder.control("", Validators.required),
+            textboxNumber: this.formBuilder.control("", Validators.required),
+            radio: this.formBuilder.control({}, Validators.required),
+            checkbox: this.formBuilder.control(true, Validators.required),
+            checkboxGroup: this.formBuilder.control("", Validators.required),
+            switch: this.formBuilder.control(true, Validators.required),
+            selectV2: this.formBuilder.control("apple", Validators.required),
+            comboboxV2: this.formBuilder.control("apple", Validators.required),
+            datepicker: this.formBuilder.control(moment(), Validators.required),
+            timepicker: this.formBuilder.control({}, Validators.required),
+            dateTimePicker: this.formBuilder.control(
+                moment("04/09/1989", "L"),
+                [
+                    // "L" is "MM/DD/YYY" in moment.js
+                    Validators.required,
+                ]
+            ),
+        });
+    }
 
     public ngOnInit(): void {
         this.dynamicForm.disable();

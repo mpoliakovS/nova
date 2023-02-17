@@ -27,12 +27,14 @@ import { FormBuilder, Validators } from "@angular/forms";
         "./basic-reactive-form-field-custom-validation.example.component.html",
 })
 export class FormFieldBasicReactiveCustomValidationExampleComponent {
-    public reactiveForm = this.formBuilder.group({
-        email: this.formBuilder.control("", [
-            Validators.required,
-            Validators.email,
-        ]),
-    });
+    public reactiveForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.reactiveForm = this.formBuilder.group({
+            email: this.formBuilder.control("", [
+                Validators.required,
+                Validators.email,
+            ]),
+        });
+    }
 }

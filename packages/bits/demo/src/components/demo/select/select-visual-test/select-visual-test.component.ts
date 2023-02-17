@@ -47,11 +47,7 @@ export class SelectVisualTestComponent {
         ],
         selectedItem: "",
     };
-    public myForm = this.formBuilder.group({
-        item: this.formBuilder.control(this.datasetBasic.selectedItem, [
-            Validators.required,
-        ]),
-    });
+    public myForm;
     public datasetDisabled = {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "Item 1",
@@ -123,7 +119,13 @@ export class SelectVisualTestComponent {
         ],
     };
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.myForm = this.formBuilder.group({
+            item: this.formBuilder.control(this.datasetBasic.selectedItem, [
+                Validators.required,
+            ]),
+        });
+    }
 
     public onSubmit(): void {
         if (!this.myForm.valid) {

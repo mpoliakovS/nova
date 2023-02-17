@@ -26,12 +26,14 @@ import { UntypedFormBuilder, Validators } from "@angular/forms";
     templateUrl: "./basic-reactive-form-field.example.component.html",
 })
 export class FormFieldBasicReactiveExampleComponent {
-    public reactiveForm = this.formBuilder.group({
-        email: this.formBuilder.control("", [
-            Validators.required,
-            Validators.email,
-        ]),
-    });
+    public reactiveForm;
 
-    constructor(private formBuilder: UntypedFormBuilder) {}
+    constructor(private formBuilder: UntypedFormBuilder) {
+        this.reactiveForm = this.formBuilder.group({
+            email: this.formBuilder.control("", [
+                Validators.required,
+                Validators.email,
+            ]),
+        });
+    }
 }

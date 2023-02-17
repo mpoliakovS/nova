@@ -34,17 +34,19 @@ export class ComboboxReactiveFormExampleComponent implements OnInit, OnDestroy {
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
         selectedItem: "Item 2",
     };
-    public myForm = this.formBuilder.group({
-        item: this.formBuilder.control(this.dataset.selectedItem, [
-            Validators.required,
-        ]),
-    });
+    public myForm;
     destroy$$ = new Subject<void>();
 
     constructor(
         private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService
-    ) {}
+    ) {
+        this.myForm = this.formBuilder.group({
+            item: this.formBuilder.control(this.dataset.selectedItem, [
+                Validators.required,
+            ]),
+        });
+    }
 
     public ngOnInit(): void {
         this.myForm.controls.item.valueChanges

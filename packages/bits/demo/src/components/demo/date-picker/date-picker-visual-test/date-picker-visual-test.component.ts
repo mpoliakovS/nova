@@ -35,11 +35,13 @@ export class DatePickerVisualTestComponent {
         minute: 30,
     });
     public emptyDate = moment("");
-    public myForm = this.formBuilder.group({
-        datePickerFormControl: this.formBuilder.control(this.emptyDate, [
-            Validators.required,
-        ]),
-    });
+    public myForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.myForm = this.formBuilder.group({
+            datePickerFormControl: this.formBuilder.control(this.emptyDate, [
+                Validators.required,
+            ]),
+        });
+    }
 }

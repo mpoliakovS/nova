@@ -122,9 +122,7 @@ export class ComboboxV2TestExampleComponent implements OnInit, AfterViewInit {
     public comboboxControlMulti = new FormControl<
         { id: string; name: string }[] | null
     >(null);
-    public fancyForm = this.formBuilder.group({
-        combobox: this.formBuilder.control("", Validators.required),
-    });
+    public fancyForm;
     public closePopoverSubject: Subject<void> = new Subject<void>();
     @ViewChild("comboboxSingle") public comboboxSingle: ComboboxV2Component;
     @ViewChild("comboboxMultiDimensions")
@@ -140,7 +138,11 @@ export class ComboboxV2TestExampleComponent implements OnInit, AfterViewInit {
         private formBuilder: FormBuilder,
         private dialogService: DialogService,
         private toastService: ToastService
-    ) {}
+    ) {
+        this.fancyForm = this.formBuilder.group({
+            combobox: this.formBuilder.control("", Validators.required),
+        });
+    }
 
     public closePopover(): void {
         this.closePopoverSubject.next();

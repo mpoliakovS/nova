@@ -36,14 +36,16 @@ export class PopupWithCustomContentComponent {
         $localize`Item 3`,
         $localize`Item 4`,
     ];
-    public demoFormGroup = this.formBuilder.group({
-        checkboxGroup: this.formBuilder.control(
-            [this.itemsSource[0], this.itemsSource[1], this.itemsSource[2]],
-            [Validators.required, Validators.minLength(3)]
-        ),
-    });
+    public demoFormGroup;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.demoFormGroup = this.formBuilder.group({
+            checkboxGroup: this.formBuilder.control(
+                [this.itemsSource[0], this.itemsSource[1], this.itemsSource[2]],
+                [Validators.required, Validators.minLength(3)]
+            ),
+        });
+    }
 
     public handleClick(event: MouseEvent): void {
         event.stopPropagation();

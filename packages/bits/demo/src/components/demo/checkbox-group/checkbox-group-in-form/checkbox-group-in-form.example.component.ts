@@ -34,17 +34,19 @@ export class CheckboxGroupInFormExampleComponent {
     public carrot = $localize`Carrot`;
     public vegetables = [this.cabbage, this.potato, this.tomato, this.carrot];
     public selectedVegetables = [this.cabbage];
-    public myForm = this.formBuilder.group({
-        checkboxGroup: this.formBuilder.control(
-            [this.cabbage, this.potato],
-            [Validators.required, Validators.minLength(3)]
-        ),
-    });
+    public myForm;
 
     constructor(
         private formBuilder: FormBuilder,
         private toastService: ToastService
-    ) {}
+    ) {
+        this.myForm = this.formBuilder.group({
+            checkboxGroup: this.formBuilder.control(
+                [this.cabbage, this.potato],
+                [Validators.required, Validators.minLength(3)]
+            ),
+        });
+    }
 
     public onSubmit(): void {
         console.log(this.myForm);
