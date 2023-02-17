@@ -28,7 +28,7 @@ import { TextboxAtom } from "../textbox/textbox.atom";
 import { WizardStepAtom } from "./wizard-step.atom";
 import { WizardAtom } from "./wizard.atom";
 
-fdescribe("USERCONTROL Wizard >", () => {
+describe("USERCONTROL Wizard >", () => {
     const wizard: WizardAtom = Atom.find(WizardAtom, "nui-demo-wizard");
     const wizardValidation: WizardAtom = Atom.find(
         WizardAtom,
