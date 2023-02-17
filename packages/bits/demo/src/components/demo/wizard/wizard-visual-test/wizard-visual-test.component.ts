@@ -38,11 +38,7 @@ export class WizardVisualTestComponent {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
     @ViewChild("dialogWizardBusy") dialogWizardBusy: WizardComponent;
 
-    public myForm = this.formBuilder.group({
-        name: ["", Validators.required],
-        email: ["", [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
-        password: ["", [Validators.required, Validators.minLength(8)]],
-    });
+    public myForm;
     public hint = "example-hint";
     public caption = "example-caption";
     public secondStepBusyConfig: IBusyConfig = {
@@ -60,7 +56,16 @@ export class WizardVisualTestComponent {
     constructor(
         private formBuilder: FormBuilder,
         @Inject(DialogService) private dialogService: DialogService
-    ) {}
+    ) {
+        this.myForm = this.formBuilder.group({
+            name: ["", Validators.required],
+            email: [
+                "",
+                [Validators.required, Validators.pattern("[^ @]*@[^ @]*")],
+            ],
+            password: ["", [Validators.required, Validators.minLength(8)]],
+        });
+    }
 
     public onOptionChange(value: string): void {
         this.hint = value;

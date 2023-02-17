@@ -40,12 +40,7 @@ export class WizardSimpleExampleComponent {
     @ViewChild("wizardStep2") wizardStep2Component: WizardStepComponent;
     @ViewChild("wizardStep3") wizardStep3Component: WizardStepComponent;
     @ViewChild("dynamicStep") dynamicStep: WizardStepComponent;
-
-    public myForm = this.formBuilder.group({
-        name: ["", Validators.required],
-        email: ["", [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
-        password: ["", [Validators.required, Validators.minLength(8)]],
-    });
+    public myForm;
     public hint = $localize`example-hint`;
     public caption = $localize`example-caption`;
     public vegetables = [
@@ -71,7 +66,13 @@ export class WizardSimpleExampleComponent {
         private formBuilder: FormBuilder,
         @Inject(ToastService) private toastService: ToastService,
         @Inject(DialogService) private dialogService: DialogService
-    ) {}
+    ) {
+        this.myForm = this.formBuilder.group({
+            name: ["", Validators.required],
+            email: ["", [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
+            password: ["", [Validators.required, Validators.minLength(8)]],
+        })
+    }
 
     public onOptionChange(value: string): void {
         this.hint = value;

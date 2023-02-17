@@ -38,21 +38,23 @@ export class WizardStepsExampleComponent implements OnDestroy {
     @ViewChild("dynamicStep") dynamicStep: WizardStepComponent;
 
     public selectedIndex: number;
-    public myForm = this.formBuilder.group({
-        name: ["", Validators.required],
-        email: [
-            "",
-            [
-                Validators.required,
-                Validators.pattern("[^ @]*@[^ @]*"),
-                Validators.email,
-            ],
-        ],
-        password: ["", [Validators.required, Validators.minLength(8)]],
-    });
+    public myForm;
     private readonly destroy$ = new Subject<void>();
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.myForm = this.formBuilder.group({
+            name: ["", Validators.required],
+            email: [
+                "",
+                [
+                    Validators.required,
+                    Validators.pattern("[^ @]*@[^ @]*"),
+                    Validators.email,
+                ],
+            ],
+            password: ["", [Validators.required, Validators.minLength(8)]],
+        });
+    }
 
     public select(event: IWizardSelectionEvent): void {
         this.selectedIndex = event.selectedIndex;

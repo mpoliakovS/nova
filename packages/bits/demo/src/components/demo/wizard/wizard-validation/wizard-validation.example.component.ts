@@ -29,23 +29,26 @@ import { WizardComponent } from "@nova-ui/bits";
 })
 export class WizardValidationExampleComponent {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
-    public myForm = this.formBuilder.group({
-        name: this.formBuilder.control("", Validators.required),
-        email: this.formBuilder.control("", [
-            Validators.required,
-            Validators.pattern("[^ @]*@[^ @]*"),
-            Validators.email,
-        ]),
-        password: this.formBuilder.control("", [
-            Validators.required,
-            Validators.minLength(8),
-        ]),
-    });
-    public secondStepForm = this.formBuilder.group({
-        formCheckbox: [false, [Validators.requiredTrue]],
-    });
+    public myForm;
+    public secondStepForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.myForm = this.formBuilder.group({
+            name: this.formBuilder.control("", Validators.required),
+            email: this.formBuilder.control("", [
+                Validators.required,
+                Validators.pattern("[^ @]*@[^ @]*"),
+                Validators.email,
+            ]),
+            password: this.formBuilder.control("", [
+                Validators.required,
+                Validators.minLength(8),
+            ]),
+        })
+        this.secondStepForm = this.formBuilder.group({
+            formCheckbox: [false, [Validators.requiredTrue]],
+        });
+    }
 
     public updateValidity(): void {
         this.secondStepForm.controls.formCheckbox?.updateValueAndValidity();

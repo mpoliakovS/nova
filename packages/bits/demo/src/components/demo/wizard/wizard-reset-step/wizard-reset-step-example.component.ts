@@ -29,23 +29,26 @@ import { IWizardSelectionEvent, WizardComponent } from "@nova-ui/bits";
 })
 export class WizardResetStepExampleComponent {
     @ViewChild("wizardComponent") wizardComponent: WizardComponent;
-    public myForm = this.formBuilder.group({
-        name: ["", Validators.required],
-        email: [
-            "",
-            [
-                Validators.required,
-                Validators.pattern("[^ @]*@[^ @]*"),
-                Validators.email,
-            ],
-        ],
-        password: ["", [Validators.required]],
-    });
-    public secondStepForm = this.formBuilder.group({
-        formCheckbox: [false, [Validators.requiredTrue]],
-    });
+    public myForm;
+    public secondStepForm;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+        this.myForm = this.formBuilder.group({
+            name: ["", Validators.required],
+            email: [
+                "",
+                [
+                    Validators.required,
+                    Validators.pattern("[^ @]*@[^ @]*"),
+                    Validators.email,
+                ],
+            ],
+            password: ["", [Validators.required]],
+        });
+        this.secondStepForm = this.formBuilder.group({
+            formCheckbox: [false, [Validators.requiredTrue]],
+        });
+    }
 
     public updateValidity(): void {
         this.secondStepForm.get("formCheckbox")?.updateValueAndValidity();
