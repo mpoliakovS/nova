@@ -44,7 +44,7 @@ export class WizardValidationExampleComponent {
                 Validators.required,
                 Validators.minLength(8),
             ]),
-        })
+        });
         this.secondStepForm = this.formBuilder.group({
             formCheckbox: [false, [Validators.requiredTrue]],
         });

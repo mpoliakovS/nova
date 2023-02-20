@@ -69,9 +69,12 @@ export class WizardSimpleExampleComponent {
     ) {
         this.myForm = this.formBuilder.group({
             name: ["", Validators.required],
-            email: ["", [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
+            email: [
+                "",
+                [Validators.required, Validators.pattern("[^ @]*@[^ @]*")],
+            ],
             password: ["", [Validators.required, Validators.minLength(8)]],
-        })
+        });
     }
 
     public onOptionChange(value: string): void {

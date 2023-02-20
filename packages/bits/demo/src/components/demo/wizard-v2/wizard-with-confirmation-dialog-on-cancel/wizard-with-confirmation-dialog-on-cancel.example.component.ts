@@ -69,7 +69,7 @@ export class WizardWithConfirmationDialogOnCancelExampleComponent {
                 confirmed: [false, Validators.requiredTrue],
             }),
         });
-     }
+    }
 
     // Open confirmation dialog
     public openConfirmationDialog(content: TemplateRef<string>): void {

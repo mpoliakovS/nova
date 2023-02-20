@@ -14,16 +14,13 @@
             <p>
                 Name:
                 {{
-                form.get(["personDetails", "name"])?.value ||
-                        "Not provided"
+                    form.get(["personDetails", "name"])?.value || "Not provided"
                 }}
             </p>
             <p>
                 Symptoms:
                 <ng-container
-                    [ngSwitch]="
-                        form.get(['personDetails', 'symptoms'])?.value
-                    "
+                    [ngSwitch]="form.get(['personDetails', 'symptoms'])?.value"
                 >
                     <ng-container *ngSwitchCase="true">
                         {{
@@ -65,8 +62,7 @@
                 <nui-validation-message
                     for="required"
                     *ngIf="
-                        form.get(['personDetails', 'name'])?.errors
-                            ?.required
+                        form.get(['personDetails', 'name'])?.errors?.required
                     "
                     i18n
                 >
@@ -136,8 +132,7 @@
                 <nui-validation-message
                     for="required"
                     *ngIf="
-                        form.get(['diseaseDetails', 'date'])?.errors
-                            ?.required
+                        form.get(['diseaseDetails', 'date'])?.errors?.required
                     "
                     i18n
                 >
@@ -167,8 +162,7 @@
                 <nui-validation-message
                     for="required"
                     *ngIf="
-                        form.get(['contactDetails', 'email'])?.errors
-                            ?.required
+                        form.get(['contactDetails', 'email'])?.errors?.required
                     "
                     i18n
                 >
