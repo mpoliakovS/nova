@@ -584,9 +584,9 @@ jobs:
         docker:
             - image: cimg/node:16.18
         environment:
-            SOURCE_BRANCH: hotfix/v12.0.x
+            SOURCE_BRANCH: cci-release/test
             CREATE_RELEASE_BRANCH: "true"
-            RELEASE_BRANCH: release/v12.0.x
+            RELEASE_BRANCH: release-test/test
             INCREMENT_TYPE: patch
         steps:
             - add_ssh_keys
