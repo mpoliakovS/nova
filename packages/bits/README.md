@@ -29,7 +29,7 @@ ng --version
 If you want to install the latest Angular CLI globally, run the following command:
 
 ```sh
-npm install -g @angular/cli
+npm install -g @angular/cli@15
 ```
 
 ### Installing Angular CDK
